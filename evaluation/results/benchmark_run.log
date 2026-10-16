@@ -1,0 +1,550 @@
+2026-09-10 07:04:45 [INFO] [rag_app] Loading FastEmbed model 'BAAI/bge-small-en-v1.5' on CPU...
+2026-09-10 07:04:46 [INFO] [rag_app] FastEmbed model 'BAAI/bge-small-en-v1.5' initialized successfully.
+2026-09-10 07:04:46 [INFO] [rag_app] Starting Multi-Model Evaluation: 25 tasks across 3 models.
+2026-09-10 07:04:46 [INFO] [rag_app] --- Evaluating Model: llama3.2:1b ---
+2026-09-10 07:04:46 [INFO] [rag_app] [llama3.2:1b] Running Task 1/25: TASK-01 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:04:46 [INFO] [rag_app] START: fastembed_query | {}
+/usr/local/lib/python3.11/site-packages/qdrant_client/qdrant_remote.py:282: UserWarning: Qdrant client version 1.19.0 is incompatible with server version 1.11.0. Major versions should match and minor version difference must not exceed 1. Set check_compatibility=False to skip version check.
+  show_warning(
+2026-09-10 07:04:47 [INFO] [rag_app] COMPLETED: fastembed_query in 179.38ms | {'elapsed_ms': 179.38400499951968}
+2026-09-10 07:04:47 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:04:47 [INFO] [rag_app] COMPLETED: qdrant_search in 28.63ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 28.62551599901053}
+2026-09-10 07:04:47 [INFO] [rag_app] Retrieval for 'What is the core sequence recovery rate ...': retrieved=5, filtered=5, max_sim=0.9226, threshold=0.35, embed=180.03ms, search=43.08ms, low_conf=False
+2026-09-10 07:05:17 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 30604.63ms (618 chars, 122 tokens, 13.46 tok/s).
+2026-09-10 07:05:17 [INFO] [rag_app] [llama3.2:1b] Running Task 2/25: TASK-02 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:05:17 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:05:17 [INFO] [rag_app] COMPLETED: fastembed_query in 129.79ms | {'elapsed_ms': 129.79159300084575}
+2026-09-10 07:05:17 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:05:17 [INFO] [rag_app] COMPLETED: qdrant_search in 18.18ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 18.177440999352257}
+2026-09-10 07:05:17 [INFO] [rag_app] Retrieval for 'How does the generative transformer mode...': retrieved=5, filtered=5, max_sim=0.9015, threshold=0.35, embed=130.34ms, search=18.58ms, low_conf=False
+2026-09-10 07:06:02 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 44380.56ms (2035 chars, 350 tokens, 12.55 tok/s).
+2026-09-10 07:06:02 [INFO] [rag_app] [llama3.2:1b] Running Task 3/25: TASK-03 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:06:02 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:06:02 [INFO] [rag_app] COMPLETED: fastembed_query in 135.02ms | {'elapsed_ms': 135.0188270007493}
+2026-09-10 07:06:02 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:06:02 [INFO] [rag_app] COMPLETED: qdrant_search in 35.65ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 35.65331000027072}
+2026-09-10 07:06:02 [INFO] [rag_app] Retrieval for 'What lead time and accuracy metrics are ...': retrieved=5, filtered=5, max_sim=0.8271, threshold=0.35, embed=135.61ms, search=40.41ms, low_conf=False
+2026-09-10 07:06:25 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 22556.72ms (334 chars, 78 tokens, 13.78 tok/s).
+2026-09-10 07:06:25 [INFO] [rag_app] [llama3.2:1b] Running Task 4/25: TASK-04 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:06:25 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:06:25 [INFO] [rag_app] COMPLETED: fastembed_query in 114.22ms | {'elapsed_ms': 114.22469399985857}
+2026-09-10 07:06:25 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:06:25 [INFO] [rag_app] COMPLETED: qdrant_search in 110.22ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 110.21883300054469}
+2026-09-10 07:06:25 [INFO] [rag_app] Retrieval for 'What are the primary clinical challenges...': retrieved=5, filtered=5, max_sim=0.8634, threshold=0.35, embed=115.36ms, search=110.71ms, low_conf=False
+2026-09-10 07:06:58 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 33617.06ms (1264 chars, 232 tokens, 13.86 tok/s).
+2026-09-10 07:06:58 [INFO] [rag_app] [llama3.2:1b] Running Task 5/25: TASK-05 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:06:58 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:06:59 [INFO] [rag_app] COMPLETED: fastembed_query in 456.20ms | {'elapsed_ms': 456.1956329998793}
+2026-09-10 07:06:59 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:06:59 [INFO] [rag_app] COMPLETED: qdrant_search in 108.90ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 108.9044410000497}
+2026-09-10 07:06:59 [INFO] [rag_app] Retrieval for 'How do transformer patient embeddings us...': retrieved=5, filtered=5, max_sim=0.8100, threshold=0.35, embed=456.53ms, search=123.36ms, low_conf=False
+2026-09-10 07:07:32 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 32990.89ms (962 chars, 182 tokens, 11.53 tok/s).
+2026-09-10 07:07:32 [INFO] [rag_app] [llama3.2:1b] Running Task 6/25: TASK-06 (CODE_EXPLANATION)
+2026-09-10 07:07:32 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:07:32 [INFO] [rag_app] COMPLETED: fastembed_query in 127.42ms | {'elapsed_ms': 127.42252499992901}
+2026-09-10 07:07:32 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:07:32 [INFO] [rag_app] COMPLETED: qdrant_search in 37.54ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 37.53963099916291}
+2026-09-10 07:07:32 [INFO] [rag_app] Retrieval for 'Explain what the calculate_hash() method...': retrieved=5, filtered=5, max_sim=0.8458, threshold=0.35, embed=132.78ms, search=41.73ms, low_conf=False
+2026-09-10 07:08:20 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 47322.82ms (1622 chars, 350 tokens, 11.62 tok/s).
+2026-09-10 07:08:20 [INFO] [rag_app] [llama3.2:1b] Running Task 7/25: TASK-07 (CODE_EXPLANATION)
+2026-09-10 07:08:20 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:08:20 [INFO] [rag_app] COMPLETED: fastembed_query in 136.21ms | {'elapsed_ms': 136.20532999993884}
+2026-09-10 07:08:20 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:08:20 [INFO] [rag_app] COMPLETED: qdrant_search in 37.66ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 37.655088999599684}
+2026-09-10 07:08:20 [INFO] [rag_app] Retrieval for 'What does the RecursiveCharacterChunker ...': retrieved=5, filtered=5, max_sim=0.8250, threshold=0.35, embed=136.74ms, search=38.71ms, low_conf=False
+2026-09-10 07:09:13 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 53510.55ms (1185 chars, 232 tokens, 11.61 tok/s).
+2026-09-10 07:09:13 [INFO] [rag_app] [llama3.2:1b] Running Task 8/25: TASK-08 (CODE_EXPLANATION)
+2026-09-10 07:09:13 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:09:13 [INFO] [rag_app] COMPLETED: fastembed_query in 111.84ms | {'elapsed_ms': 111.84195799978625}
+2026-09-10 07:09:13 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:09:13 [INFO] [rag_app] COMPLETED: qdrant_search in 21.51ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 21.505005001017707}
+2026-09-10 07:09:13 [INFO] [rag_app] Retrieval for 'Which software components and modules di...': retrieved=5, filtered=5, max_sim=0.7531, threshold=0.35, embed=112.54ms, search=22.75ms, low_conf=False
+2026-09-10 07:09:48 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 34467.02ms (982 chars, 210 tokens, 11.98 tok/s).
+2026-09-10 07:09:48 [INFO] [rag_app] [llama3.2:1b] Running Task 9/25: TASK-09 (BUG_ANALYSIS)
+2026-09-10 07:09:48 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:09:48 [INFO] [rag_app] COMPLETED: fastembed_query in 138.17ms | {'elapsed_ms': 138.17151400144212}
+2026-09-10 07:09:48 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:09:48 [INFO] [rag_app] COMPLETED: qdrant_search in 54.21ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 54.2113760002394}
+2026-09-10 07:09:48 [INFO] [rag_app] Retrieval for 'What happens if a user uploads a PDF tha...': retrieved=5, filtered=5, max_sim=0.7048, threshold=0.35, embed=138.55ms, search=54.46ms, low_conf=False
+2026-09-10 07:10:32 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 44004.36ms (1675 chars, 350 tokens, 12.93 tok/s).
+2026-09-10 07:10:32 [INFO] [rag_app] [llama3.2:1b] Running Task 10/25: TASK-10 (BUG_ANALYSIS)
+2026-09-10 07:10:32 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:10:32 [INFO] [rag_app] COMPLETED: fastembed_query in 105.07ms | {'elapsed_ms': 105.0659070006077}
+2026-09-10 07:10:32 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:10:32 [INFO] [rag_app] COMPLETED: qdrant_search in 94.03ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 94.02934900026594}
+2026-09-10 07:10:32 [INFO] [rag_app] Retrieval for 'What could cause RAGPipeline.query() to ...': retrieved=5, filtered=5, max_sim=0.8081, threshold=0.35, embed=105.67ms, search=94.48ms, low_conf=False
+2026-09-10 07:11:31 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 58146.44ms (1596 chars, 350 tokens, 12.2 tok/s).
+2026-09-10 07:11:31 [INFO] [rag_app] [llama3.2:1b] Running Task 11/25: TASK-11 (CODE_GENERATION)
+2026-09-10 07:11:31 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:11:31 [INFO] [rag_app] COMPLETED: fastembed_query in 237.08ms | {'elapsed_ms': 237.07917600040673}
+2026-09-10 07:11:31 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:11:31 [INFO] [rag_app] COMPLETED: qdrant_search in 32.55ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 32.5504730008106}
+2026-09-10 07:11:31 [INFO] [rag_app] Retrieval for 'Write a pure Python function `cosine_sim...': retrieved=5, filtered=5, max_sim=0.7740, threshold=0.35, embed=237.84ms, search=33.14ms, low_conf=False
+2026-09-10 07:12:29 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 58069.07ms (1498 chars, 350 tokens, 11.99 tok/s).
+2026-09-10 07:12:29 [INFO] [rag_app] [llama3.2:1b] Running Task 12/25: TASK-12 (CODE_GENERATION)
+2026-09-10 07:12:29 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:12:29 [INFO] [rag_app] COMPLETED: fastembed_query in 415.04ms | {'elapsed_ms': 415.04229699967254}
+2026-09-10 07:12:30 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:12:30 [INFO] [rag_app] COMPLETED: qdrant_search in 28.25ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 28.254654000193113}
+2026-09-10 07:12:30 [INFO] [rag_app] Retrieval for 'Write a Python function `filter_chunks_b...': retrieved=5, filtered=5, max_sim=0.7500, threshold=0.35, embed=527.11ms, search=28.89ms, low_conf=False
+2026-09-10 07:13:16 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 46431.03ms (1496 chars, 350 tokens, 12.72 tok/s).
+2026-09-10 07:13:16 [INFO] [rag_app] [llama3.2:1b] Running Task 13/25: TASK-13 (CODE_GENERATION)
+2026-09-10 07:13:16 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:13:16 [INFO] [rag_app] COMPLETED: fastembed_query in 230.82ms | {'elapsed_ms': 230.82088199953432}
+2026-09-10 07:13:16 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:13:16 [INFO] [rag_app] COMPLETED: qdrant_search in 53.32ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 53.31843400017533}
+2026-09-10 07:13:16 [INFO] [rag_app] Retrieval for 'Write a Python function `format_citation...': retrieved=5, filtered=5, max_sim=0.7169, threshold=0.35, embed=235.18ms, search=54.52ms, low_conf=False
+2026-09-10 07:13:55 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 38672.99ms (1302 chars, 324 tokens, 13.05 tok/s).
+2026-09-10 07:13:55 [INFO] [rag_app] [llama3.2:1b] Running Task 14/25: TASK-14 (CODE_GENERATION)
+2026-09-10 07:13:55 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:13:55 [INFO] [rag_app] COMPLETED: fastembed_query in 189.16ms | {'elapsed_ms': 189.15555300009146}
+2026-09-10 07:13:55 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:13:55 [INFO] [rag_app] COMPLETED: qdrant_search in 32.82ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 32.8244510001241}
+2026-09-10 07:13:55 [INFO] [rag_app] Retrieval for 'Write a Python function `compute_mrr(ran...': retrieved=5, filtered=5, max_sim=0.7373, threshold=0.35, embed=243.45ms, search=33.37ms, low_conf=False
+2026-09-10 07:14:45 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 49357.36ms (1431 chars, 350 tokens, 13.08 tok/s).
+2026-09-10 07:14:45 [INFO] [rag_app] [llama3.2:1b] Running Task 15/25: TASK-15 (REFACTORING)
+2026-09-10 07:14:45 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:14:45 [INFO] [rag_app] COMPLETED: fastembed_query in 127.18ms | {'elapsed_ms': 127.17963400064036}
+2026-09-10 07:14:45 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:14:45 [INFO] [rag_app] COMPLETED: qdrant_search in 36.46ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 36.46098299941514}
+2026-09-10 07:14:45 [INFO] [rag_app] Retrieval for 'Suggest a refactoring for the Ollama cli...': retrieved=5, filtered=5, max_sim=0.8088, threshold=0.35, embed=147.27ms, search=36.9ms, low_conf=False
+2026-09-10 07:15:31 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 46309.63ms (1561 chars, 350 tokens, 12.73 tok/s).
+2026-09-10 07:15:31 [INFO] [rag_app] [llama3.2:1b] Running Task 16/25: TASK-16 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:15:31 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:15:32 [INFO] [rag_app] COMPLETED: fastembed_query in 340.39ms | {'elapsed_ms': 340.3890440004034}
+2026-09-10 07:15:32 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:15:32 [INFO] [rag_app] COMPLETED: qdrant_search in 54.51ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 54.5061849988997}
+2026-09-10 07:15:32 [INFO] [rag_app] Retrieval for 'Trace the step-by-step execution path ac...': retrieved=5, filtered=5, max_sim=0.7325, threshold=0.35, embed=340.7ms, search=54.83ms, low_conf=False
+2026-09-10 07:16:11 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 39658.96ms (1467 chars, 350 tokens, 13.76 tok/s).
+2026-09-10 07:16:11 [INFO] [rag_app] [llama3.2:1b] Running Task 17/25: TASK-17 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:16:11 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:16:11 [INFO] [rag_app] COMPLETED: fastembed_query in 107.43ms | {'elapsed_ms': 107.42800600019109}
+2026-09-10 07:16:11 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:16:11 [INFO] [rag_app] COMPLETED: qdrant_search in 97.20ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 97.19629600112967}
+2026-09-10 07:16:11 [INFO] [rag_app] Retrieval for 'Which files and database tables are invo...': retrieved=5, filtered=5, max_sim=0.7591, threshold=0.35, embed=108.23ms, search=97.57ms, low_conf=False
+2026-09-10 07:16:52 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 40988.40ms (1372 chars, 350 tokens, 13.38 tok/s).
+2026-09-10 07:16:53 [INFO] [rag_app] [llama3.2:1b] Running Task 18/25: TASK-18 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:16:53 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:16:53 [INFO] [rag_app] COMPLETED: fastembed_query in 124.28ms | {'elapsed_ms': 124.28113699934329}
+2026-09-10 07:16:53 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:16:53 [INFO] [rag_app] COMPLETED: qdrant_search in 110.01ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 110.01050199956808}
+2026-09-10 07:16:53 [INFO] [rag_app] Retrieval for 'If the embedding dimension in app/config...': retrieved=5, filtered=5, max_sim=0.7558, threshold=0.35, embed=126.3ms, search=111.9ms, low_conf=False
+2026-09-10 07:17:48 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 55093.44ms (1775 chars, 350 tokens, 13.18 tok/s).
+2026-09-10 07:17:48 [INFO] [rag_app] [llama3.2:1b] Running Task 19/25: TASK-19 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:17:48 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:17:48 [INFO] [rag_app] COMPLETED: fastembed_query in 99.84ms | {'elapsed_ms': 99.83599000042886}
+2026-09-10 07:17:48 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:17:48 [INFO] [rag_app] COMPLETED: qdrant_search in 79.06ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 79.05929799926525}
+2026-09-10 07:17:48 [INFO] [rag_app] Retrieval for 'Which test files in the tests/ directory...': retrieved=5, filtered=5, max_sim=0.7476, threshold=0.35, embed=101.42ms, search=79.33ms, low_conf=False
+2026-09-10 07:18:44 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 55517.56ms (1743 chars, 350 tokens, 13.08 tok/s).
+2026-09-10 07:18:44 [INFO] [rag_app] [llama3.2:1b] Running Task 20/25: TASK-20 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:18:44 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:18:44 [INFO] [rag_app] COMPLETED: fastembed_query in 106.16ms | {'elapsed_ms': 106.16163899976527}
+2026-09-10 07:18:44 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:18:44 [INFO] [rag_app] COMPLETED: qdrant_search in 88.50ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 88.49526599988167}
+2026-09-10 07:18:44 [INFO] [rag_app] Retrieval for 'What role does metadata/rag.db play in r...': retrieved=5, filtered=5, max_sim=0.7802, threshold=0.35, embed=106.54ms, search=89.81ms, low_conf=False
+2026-09-10 07:19:23 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 39579.89ms (1749 chars, 350 tokens, 13.91 tok/s).
+2026-09-10 07:19:23 [INFO] [rag_app] [llama3.2:1b] Running Task 21/25: TASK-21 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:19:23 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:19:24 [INFO] [rag_app] COMPLETED: fastembed_query in 111.83ms | {'elapsed_ms': 111.83009399974253}
+2026-09-10 07:19:24 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:19:24 [INFO] [rag_app] COMPLETED: qdrant_search in 93.92ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 93.91822299949126}
+2026-09-10 07:19:24 [INFO] [rag_app] Retrieval for 'What does the documentation say about Ku...': retrieved=5, filtered=5, max_sim=0.6515, threshold=0.35, embed=112.74ms, search=94.14ms, low_conf=False
+2026-09-10 07:20:10 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 46474.75ms (1318 chars, 238 tokens, 11.97 tok/s).
+2026-09-10 07:20:10 [INFO] [rag_app] [llama3.2:1b] Running Task 22/25: TASK-22 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:20:10 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:20:10 [INFO] [rag_app] COMPLETED: fastembed_query in 91.85ms | {'elapsed_ms': 91.85460499975306}
+2026-09-10 07:20:10 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:20:10 [INFO] [rag_app] COMPLETED: qdrant_search in 94.25ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 94.24559400031285}
+2026-09-10 07:20:10 [INFO] [rag_app] Retrieval for 'What is the Bitcoin payment transaction ...': retrieved=5, filtered=5, max_sim=0.6822, threshold=0.35, embed=92.57ms, search=95.47ms, low_conf=False
+2026-09-10 07:20:45 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 34369.01ms (944 chars, 239 tokens, 12.47 tok/s).
+2026-09-10 07:20:45 [INFO] [rag_app] [llama3.2:1b] Running Task 23/25: TASK-23 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:20:45 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:20:45 [INFO] [rag_app] COMPLETED: fastembed_query in 254.49ms | {'elapsed_ms': 254.49149499945634}
+2026-09-10 07:20:45 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:20:45 [INFO] [rag_app] COMPLETED: qdrant_search in 66.82ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 66.82452099994407}
+2026-09-10 07:20:45 [INFO] [rag_app] Retrieval for 'How does the system configure OAuth2 Goo...': retrieved=5, filtered=5, max_sim=0.6140, threshold=0.35, embed=254.9ms, search=67.08ms, low_conf=False
+2026-09-10 07:21:42 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 56719.29ms (1575 chars, 350 tokens, 10.68 tok/s).
+2026-09-10 07:21:42 [INFO] [rag_app] [llama3.2:1b] Running Task 24/25: TASK-24 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:21:42 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:21:42 [INFO] [rag_app] COMPLETED: fastembed_query in 137.41ms | {'elapsed_ms': 137.4115390008228}
+2026-09-10 07:21:42 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:21:42 [INFO] [rag_app] COMPLETED: qdrant_search in 39.39ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 39.38693999953102}
+2026-09-10 07:21:42 [INFO] [rag_app] Retrieval for 'Why does ProteinMPNN use an autoregressi...': retrieved=5, filtered=5, max_sim=0.8832, threshold=0.35, embed=137.62ms, search=39.57ms, low_conf=False
+2026-09-10 07:22:20 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 38004.03ms (1480 chars, 293 tokens, 12.66 tok/s).
+2026-09-10 07:22:20 [INFO] [rag_app] [llama3.2:1b] Running Task 25/25: TASK-25 (BUG_ANALYSIS)
+2026-09-10 07:22:20 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:22:20 [INFO] [rag_app] COMPLETED: fastembed_query in 112.06ms | {'elapsed_ms': 112.06462599875522}
+2026-09-10 07:22:20 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:22:20 [INFO] [rag_app] COMPLETED: qdrant_search in 99.17ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 99.16597099982027}
+2026-09-10 07:22:20 [INFO] [rag_app] Retrieval for 'What concurrency or performance bottlene...': retrieved=5, filtered=5, max_sim=0.7288, threshold=0.35, embed=112.37ms, search=99.48ms, low_conf=False
+2026-09-10 07:23:04 [INFO] [rag_app] Ollama generation (llama3.2:1b) completed in 44276.27ms (1787 chars, 350 tokens, 11.78 tok/s).
+2026-09-10 07:23:05 [INFO] [rag_app] --- Evaluating Model: starcoder2:3b ---
+2026-09-10 07:23:05 [INFO] [rag_app] [starcoder2:3b] Running Task 1/25: TASK-01 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:23:05 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:23:05 [INFO] [rag_app] COMPLETED: fastembed_query in 100.80ms | {'elapsed_ms': 100.80175000075542}
+2026-09-10 07:23:05 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:23:05 [INFO] [rag_app] COMPLETED: qdrant_search in 34.06ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 34.05978100090579}
+2026-09-10 07:23:05 [INFO] [rag_app] Retrieval for 'What is the core sequence recovery rate ...': retrieved=5, filtered=5, max_sim=0.9226, threshold=0.35, embed=101.76ms, search=34.67ms, low_conf=False
+2026-09-10 07:24:16 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 70932.76ms (1513 chars, 350 tokens, 7.71 tok/s).
+2026-09-10 07:24:16 [INFO] [rag_app] [starcoder2:3b] Running Task 2/25: TASK-02 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:24:16 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:24:16 [INFO] [rag_app] COMPLETED: fastembed_query in 127.10ms | {'elapsed_ms': 127.09739899946726}
+2026-09-10 07:24:16 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:24:16 [INFO] [rag_app] COMPLETED: qdrant_search in 18.48ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 18.47956200072076}
+2026-09-10 07:24:16 [INFO] [rag_app] Retrieval for 'How does the generative transformer mode...': retrieved=5, filtered=5, max_sim=0.9015, threshold=0.35, embed=127.6ms, search=19.42ms, low_conf=False
+2026-09-10 07:25:00 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 44196.01ms (981 chars, 350 tokens, 8.02 tok/s).
+2026-09-10 07:25:00 [INFO] [rag_app] [starcoder2:3b] Running Task 3/25: TASK-03 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:25:00 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:25:00 [INFO] [rag_app] COMPLETED: fastembed_query in 200.72ms | {'elapsed_ms': 200.7241139999678}
+2026-09-10 07:25:00 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:25:00 [INFO] [rag_app] COMPLETED: qdrant_search in 23.20ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 23.19745599925227}
+2026-09-10 07:25:00 [INFO] [rag_app] Retrieval for 'What lead time and accuracy metrics are ...': retrieved=5, filtered=5, max_sim=0.8271, threshold=0.35, embed=203.01ms, search=23.72ms, low_conf=False
+2026-09-10 07:25:50 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 49308.77ms (1500 chars, 350 tokens, 7.17 tok/s).
+2026-09-10 07:25:50 [INFO] [rag_app] [starcoder2:3b] Running Task 4/25: TASK-04 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:25:50 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:25:50 [INFO] [rag_app] COMPLETED: fastembed_query in 86.01ms | {'elapsed_ms': 86.01183300015691}
+2026-09-10 07:25:50 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:25:50 [INFO] [rag_app] COMPLETED: qdrant_search in 21.59ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 21.58560299903911}
+2026-09-10 07:25:50 [INFO] [rag_app] Retrieval for 'What are the primary clinical challenges...': retrieved=5, filtered=5, max_sim=0.8634, threshold=0.35, embed=177.31ms, search=22.34ms, low_conf=False
+2026-09-10 07:26:37 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 47688.13ms (1257 chars, 350 tokens, 7.42 tok/s).
+2026-09-10 07:26:37 [INFO] [rag_app] [starcoder2:3b] Running Task 5/25: TASK-05 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:26:37 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:26:38 [INFO] [rag_app] COMPLETED: fastembed_query in 94.56ms | {'elapsed_ms': 94.564546001493}
+2026-09-10 07:26:38 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:26:38 [INFO] [rag_app] COMPLETED: qdrant_search in 291.65ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 291.64910199870064}
+2026-09-10 07:26:38 [INFO] [rag_app] Retrieval for 'How do transformer patient embeddings us...': retrieved=5, filtered=5, max_sim=0.8100, threshold=0.35, embed=181.11ms, search=292.87ms, low_conf=False
+2026-09-10 07:27:29 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 50694.93ms (1266 chars, 350 tokens, 6.98 tok/s).
+2026-09-10 07:27:29 [INFO] [rag_app] [starcoder2:3b] Running Task 6/25: TASK-06 (CODE_EXPLANATION)
+2026-09-10 07:27:29 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:27:29 [INFO] [rag_app] COMPLETED: fastembed_query in 133.80ms | {'elapsed_ms': 133.8002599986794}
+2026-09-10 07:27:29 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:27:29 [INFO] [rag_app] COMPLETED: qdrant_search in 103.71ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 103.70539399991685}
+2026-09-10 07:27:29 [INFO] [rag_app] Retrieval for 'Explain what the calculate_hash() method...': retrieved=5, filtered=5, max_sim=0.8458, threshold=0.35, embed=134.3ms, search=104.65ms, low_conf=False
+2026-09-10 07:28:17 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 48395.89ms (1055 chars, 350 tokens, 7.33 tok/s).
+2026-09-10 07:28:17 [INFO] [rag_app] [starcoder2:3b] Running Task 7/25: TASK-07 (CODE_EXPLANATION)
+2026-09-10 07:28:17 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:28:18 [INFO] [rag_app] COMPLETED: fastembed_query in 359.40ms | {'elapsed_ms': 359.4037920011033}
+2026-09-10 07:28:18 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:28:18 [INFO] [rag_app] COMPLETED: qdrant_search in 17.24ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 17.241794999790727}
+2026-09-10 07:28:18 [INFO] [rag_app] Retrieval for 'What does the RecursiveCharacterChunker ...': retrieved=5, filtered=5, max_sim=0.8250, threshold=0.35, embed=424.82ms, search=17.58ms, low_conf=False
+2026-09-10 07:29:09 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 51089.60ms (1321 chars, 350 tokens, 6.92 tok/s).
+2026-09-10 07:29:09 [INFO] [rag_app] [starcoder2:3b] Running Task 8/25: TASK-08 (CODE_EXPLANATION)
+2026-09-10 07:29:09 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:29:09 [INFO] [rag_app] COMPLETED: fastembed_query in 224.74ms | {'elapsed_ms': 224.7410870004387}
+2026-09-10 07:29:09 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:29:09 [INFO] [rag_app] COMPLETED: qdrant_search in 147.04ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 147.0376760007639}
+2026-09-10 07:29:09 [INFO] [rag_app] Retrieval for 'Which software components and modules di...': retrieved=5, filtered=5, max_sim=0.7531, threshold=0.35, embed=314.11ms, search=147.81ms, low_conf=False
+2026-09-10 07:29:58 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 48064.61ms (960 chars, 350 tokens, 7.36 tok/s).
+2026-09-10 07:29:58 [INFO] [rag_app] [starcoder2:3b] Running Task 9/25: TASK-09 (BUG_ANALYSIS)
+2026-09-10 07:29:58 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:29:58 [INFO] [rag_app] COMPLETED: fastembed_query in 323.05ms | {'elapsed_ms': 323.04770900009316}
+2026-09-10 07:29:58 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:29:58 [INFO] [rag_app] COMPLETED: qdrant_search in 32.72ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 32.72163399924466}
+2026-09-10 07:29:58 [INFO] [rag_app] Retrieval for 'What happens if a user uploads a PDF tha...': retrieved=5, filtered=5, max_sim=0.7048, threshold=0.35, embed=493.28ms, search=33.12ms, low_conf=False
+2026-09-10 07:30:44 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 45625.30ms (1361 chars, 350 tokens, 7.76 tok/s).
+2026-09-10 07:30:44 [INFO] [rag_app] [starcoder2:3b] Running Task 10/25: TASK-10 (BUG_ANALYSIS)
+2026-09-10 07:30:44 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:30:44 [INFO] [rag_app] COMPLETED: fastembed_query in 460.20ms | {'elapsed_ms': 460.1987959995313}
+2026-09-10 07:30:44 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:30:44 [INFO] [rag_app] COMPLETED: qdrant_search in 81.80ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 81.80466699923272}
+2026-09-10 07:30:44 [INFO] [rag_app] Retrieval for 'What could cause RAGPipeline.query() to ...': retrieved=5, filtered=5, max_sim=0.8081, threshold=0.35, embed=460.91ms, search=82.38ms, low_conf=False
+2026-09-10 07:31:28 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 43457.46ms (1372 chars, 350 tokens, 8.14 tok/s).
+2026-09-10 07:31:28 [INFO] [rag_app] [starcoder2:3b] Running Task 11/25: TASK-11 (CODE_GENERATION)
+2026-09-10 07:31:28 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:31:28 [INFO] [rag_app] COMPLETED: fastembed_query in 212.11ms | {'elapsed_ms': 212.10877899829939}
+2026-09-10 07:31:28 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:31:28 [INFO] [rag_app] COMPLETED: qdrant_search in 43.04ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 43.04165699977602}
+2026-09-10 07:31:28 [INFO] [rag_app] Retrieval for 'Write a pure Python function `cosine_sim...': retrieved=5, filtered=5, max_sim=0.7740, threshold=0.35, embed=212.66ms, search=43.46ms, low_conf=False
+2026-09-10 07:32:12 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 44187.42ms (1162 chars, 350 tokens, 8.02 tok/s).
+2026-09-10 07:32:12 [INFO] [rag_app] [starcoder2:3b] Running Task 12/25: TASK-12 (CODE_GENERATION)
+2026-09-10 07:32:12 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:32:13 [INFO] [rag_app] COMPLETED: fastembed_query in 235.15ms | {'elapsed_ms': 235.1455129992246}
+2026-09-10 07:32:13 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:32:13 [INFO] [rag_app] COMPLETED: qdrant_search in 73.15ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 73.1481660004647}
+2026-09-10 07:32:13 [INFO] [rag_app] Retrieval for 'Write a Python function `filter_chunks_b...': retrieved=5, filtered=5, max_sim=0.7500, threshold=0.35, embed=235.6ms, search=74.32ms, low_conf=False
+2026-09-10 07:32:59 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 46558.51ms (1275 chars, 350 tokens, 7.64 tok/s).
+2026-09-10 07:32:59 [INFO] [rag_app] [starcoder2:3b] Running Task 13/25: TASK-13 (CODE_GENERATION)
+2026-09-10 07:32:59 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:33:00 [INFO] [rag_app] COMPLETED: fastembed_query in 256.03ms | {'elapsed_ms': 256.0329810003168}
+2026-09-10 07:33:00 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:33:00 [INFO] [rag_app] COMPLETED: qdrant_search in 98.17ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 98.17005900004006}
+2026-09-10 07:33:00 [INFO] [rag_app] Retrieval for 'Write a Python function `format_citation...': retrieved=5, filtered=5, max_sim=0.7169, threshold=0.35, embed=256.65ms, search=99.01ms, low_conf=False
+2026-09-10 07:33:44 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 44402.51ms (1423 chars, 350 tokens, 7.98 tok/s).
+2026-09-10 07:33:44 [INFO] [rag_app] [starcoder2:3b] Running Task 14/25: TASK-14 (CODE_GENERATION)
+2026-09-10 07:33:44 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:33:45 [INFO] [rag_app] COMPLETED: fastembed_query in 423.08ms | {'elapsed_ms': 423.07584899936046}
+2026-09-10 07:33:45 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:33:45 [INFO] [rag_app] COMPLETED: qdrant_search in 100.60ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 100.59807099969476}
+2026-09-10 07:33:45 [INFO] [rag_app] Retrieval for 'Write a Python function `compute_mrr(ran...': retrieved=5, filtered=5, max_sim=0.7373, threshold=0.35, embed=423.53ms, search=100.9ms, low_conf=False
+2026-09-10 07:35:20 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 95126.40ms (1122 chars, 350 tokens, 7.54 tok/s).
+2026-09-10 07:35:20 [INFO] [rag_app] [starcoder2:3b] Running Task 15/25: TASK-15 (REFACTORING)
+2026-09-10 07:35:20 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:35:20 [INFO] [rag_app] COMPLETED: fastembed_query in 254.52ms | {'elapsed_ms': 254.5185289982328}
+2026-09-10 07:35:20 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:35:20 [INFO] [rag_app] COMPLETED: qdrant_search in 79.20ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 79.19997099998}
+2026-09-10 07:35:20 [INFO] [rag_app] Retrieval for 'Suggest a refactoring for the Ollama cli...': retrieved=5, filtered=5, max_sim=0.8088, threshold=0.35, embed=255.61ms, search=79.63ms, low_conf=False
+2026-09-10 07:36:50 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 89764.66ms (995 chars, 350 tokens, 8.08 tok/s).
+2026-09-10 07:36:50 [INFO] [rag_app] [starcoder2:3b] Running Task 16/25: TASK-16 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:36:50 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:36:50 [INFO] [rag_app] COMPLETED: fastembed_query in 121.19ms | {'elapsed_ms': 121.19195199920796}
+2026-09-10 07:36:50 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:36:50 [INFO] [rag_app] COMPLETED: qdrant_search in 66.60ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 66.60215699957917}
+2026-09-10 07:36:50 [INFO] [rag_app] Retrieval for 'Trace the step-by-step execution path ac...': retrieved=5, filtered=5, max_sim=0.7325, threshold=0.35, embed=121.55ms, search=68.92ms, low_conf=False
+2026-09-10 07:37:18 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28208.33ms (1314 chars, 350 tokens, 12.58 tok/s).
+2026-09-10 07:37:18 [INFO] [rag_app] [starcoder2:3b] Running Task 17/25: TASK-17 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:37:18 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:37:19 [INFO] [rag_app] COMPLETED: fastembed_query in 224.56ms | {'elapsed_ms': 224.56114399938087}
+2026-09-10 07:37:19 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:37:19 [INFO] [rag_app] COMPLETED: qdrant_search in 23.21ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 23.210212000776664}
+2026-09-10 07:37:19 [INFO] [rag_app] Retrieval for 'Which files and database tables are invo...': retrieved=5, filtered=5, max_sim=0.7591, threshold=0.35, embed=225.05ms, search=23.41ms, low_conf=False
+2026-09-10 07:37:47 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28114.43ms (1329 chars, 350 tokens, 12.61 tok/s).
+2026-09-10 07:37:47 [INFO] [rag_app] [starcoder2:3b] Running Task 18/25: TASK-18 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:37:47 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:37:47 [INFO] [rag_app] COMPLETED: fastembed_query in 292.96ms | {'elapsed_ms': 292.9630859998724}
+2026-09-10 07:37:47 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:37:47 [INFO] [rag_app] COMPLETED: qdrant_search in 26.46ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 26.45624600154406}
+2026-09-10 07:37:47 [INFO] [rag_app] Retrieval for 'If the embedding dimension in app/config...': retrieved=5, filtered=5, max_sim=0.7558, threshold=0.35, embed=293.67ms, search=26.72ms, low_conf=False
+2026-09-10 07:38:16 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28676.24ms (1397 chars, 350 tokens, 12.35 tok/s).
+2026-09-10 07:38:16 [INFO] [rag_app] [starcoder2:3b] Running Task 19/25: TASK-19 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:38:16 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:38:16 [INFO] [rag_app] COMPLETED: fastembed_query in 117.65ms | {'elapsed_ms': 117.64570100058336}
+2026-09-10 07:38:16 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:38:16 [INFO] [rag_app] COMPLETED: qdrant_search in 9.08ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 9.080306999749155}
+2026-09-10 07:38:16 [INFO] [rag_app] Retrieval for 'Which test files in the tests/ directory...': retrieved=5, filtered=5, max_sim=0.7476, threshold=0.35, embed=200.48ms, search=9.28ms, low_conf=False
+2026-09-10 07:38:44 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 27747.94ms (1329 chars, 350 tokens, 12.77 tok/s).
+2026-09-10 07:38:44 [INFO] [rag_app] [starcoder2:3b] Running Task 20/25: TASK-20 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:38:44 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:38:44 [INFO] [rag_app] COMPLETED: fastembed_query in 543.87ms | {'elapsed_ms': 543.8696999990498}
+2026-09-10 07:38:44 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:38:45 [INFO] [rag_app] COMPLETED: qdrant_search in 87.76ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 87.76392499930807}
+2026-09-10 07:38:45 [INFO] [rag_app] Retrieval for 'What role does metadata/rag.db play in r...': retrieved=5, filtered=5, max_sim=0.7802, threshold=0.35, embed=544.29ms, search=87.97ms, low_conf=False
+2026-09-10 07:39:11 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 26517.61ms (1306 chars, 350 tokens, 13.38 tok/s).
+2026-09-10 07:39:11 [INFO] [rag_app] [starcoder2:3b] Running Task 21/25: TASK-21 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:39:11 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:39:11 [INFO] [rag_app] COMPLETED: fastembed_query in 118.97ms | {'elapsed_ms': 118.9717870001914}
+2026-09-10 07:39:11 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:39:11 [INFO] [rag_app] COMPLETED: qdrant_search in 28.92ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 28.91916900080105}
+2026-09-10 07:39:11 [INFO] [rag_app] Retrieval for 'What does the documentation say about Ku...': retrieved=5, filtered=5, max_sim=0.6515, threshold=0.35, embed=131.15ms, search=29.09ms, low_conf=False
+2026-09-10 07:39:40 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28669.93ms (1276 chars, 350 tokens, 12.39 tok/s).
+2026-09-10 07:39:40 [INFO] [rag_app] [starcoder2:3b] Running Task 22/25: TASK-22 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:39:40 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:39:40 [INFO] [rag_app] COMPLETED: fastembed_query in 90.91ms | {'elapsed_ms': 90.91299800093111}
+2026-09-10 07:39:40 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:39:40 [INFO] [rag_app] COMPLETED: qdrant_search in 24.11ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 24.109912999847438}
+2026-09-10 07:39:40 [INFO] [rag_app] Retrieval for 'What is the Bitcoin payment transaction ...': retrieved=5, filtered=5, max_sim=0.6822, threshold=0.35, embed=91.57ms, search=25.71ms, low_conf=False
+2026-09-10 07:40:09 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28612.24ms (1210 chars, 350 tokens, 12.4 tok/s).
+2026-09-10 07:40:09 [INFO] [rag_app] [starcoder2:3b] Running Task 23/25: TASK-23 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:40:09 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:40:09 [INFO] [rag_app] COMPLETED: fastembed_query in 112.18ms | {'elapsed_ms': 112.17838399898028}
+2026-09-10 07:40:09 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:40:09 [INFO] [rag_app] COMPLETED: qdrant_search in 66.80ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 66.79852799970831}
+2026-09-10 07:40:09 [INFO] [rag_app] Retrieval for 'How does the system configure OAuth2 Goo...': retrieved=5, filtered=5, max_sim=0.6140, threshold=0.35, embed=112.6ms, search=67.06ms, low_conf=False
+2026-09-10 07:41:12 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 62658.64ms (1366 chars, 350 tokens, 12.0 tok/s).
+2026-09-10 07:41:12 [INFO] [rag_app] [starcoder2:3b] Running Task 24/25: TASK-24 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:41:12 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:41:12 [INFO] [rag_app] COMPLETED: fastembed_query in 100.75ms | {'elapsed_ms': 100.75262000100338}
+2026-09-10 07:41:12 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:41:12 [INFO] [rag_app] COMPLETED: qdrant_search in 89.91ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 89.90777500002878}
+2026-09-10 07:41:12 [INFO] [rag_app] Retrieval for 'Why does ProteinMPNN use an autoregressi...': retrieved=5, filtered=5, max_sim=0.8832, threshold=0.35, embed=101.16ms, search=90.11ms, low_conf=False
+2026-09-10 07:41:40 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 28446.73ms (1277 chars, 350 tokens, 12.44 tok/s).
+2026-09-10 07:41:40 [INFO] [rag_app] [starcoder2:3b] Running Task 25/25: TASK-25 (BUG_ANALYSIS)
+2026-09-10 07:41:40 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:41:40 [INFO] [rag_app] COMPLETED: fastembed_query in 93.96ms | {'elapsed_ms': 93.95716600010928}
+2026-09-10 07:41:40 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:41:40 [INFO] [rag_app] COMPLETED: qdrant_search in 57.63ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 57.63103600111208}
+2026-09-10 07:41:40 [INFO] [rag_app] Retrieval for 'What concurrency or performance bottlene...': retrieved=5, filtered=5, max_sim=0.7288, threshold=0.35, embed=94.33ms, search=58.1ms, low_conf=False
+2026-09-10 07:42:08 [INFO] [rag_app] Ollama generation (starcoder2:3b) completed in 27252.60ms (1187 chars, 350 tokens, 12.99 tok/s).
+2026-09-10 07:42:08 [INFO] [rag_app] --- Evaluating Model: qwen2.5-coder:1.5b ---
+2026-09-10 07:42:08 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 1/25: TASK-01 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:42:08 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:42:08 [INFO] [rag_app] COMPLETED: fastembed_query in 149.64ms | {'elapsed_ms': 149.6376600007352}
+2026-09-10 07:42:08 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:42:08 [INFO] [rag_app] COMPLETED: qdrant_search in 54.91ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 54.906748000576044}
+2026-09-10 07:42:08 [INFO] [rag_app] Retrieval for 'What is the core sequence recovery rate ...': retrieved=5, filtered=5, max_sim=0.9226, threshold=0.35, embed=150.0ms, search=56.14ms, low_conf=False
+2026-09-10 07:42:20 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11999.01ms (165 chars, 41 tokens, 24.01 tok/s).
+2026-09-10 07:42:20 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 2/25: TASK-02 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:42:20 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:42:20 [INFO] [rag_app] COMPLETED: fastembed_query in 108.70ms | {'elapsed_ms': 108.70191600042745}
+2026-09-10 07:42:20 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:42:20 [INFO] [rag_app] COMPLETED: qdrant_search in 59.86ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 59.86483599917847}
+2026-09-10 07:42:20 [INFO] [rag_app] Retrieval for 'How does the generative transformer mode...': retrieved=5, filtered=5, max_sim=0.9015, threshold=0.35, embed=109.05ms, search=60.09ms, low_conf=False
+2026-09-10 07:42:29 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 8606.04ms (152 chars, 26 tokens, 25.69 tok/s).
+2026-09-10 07:42:29 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 3/25: TASK-03 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:42:29 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:42:29 [INFO] [rag_app] COMPLETED: fastembed_query in 106.93ms | {'elapsed_ms': 106.92903000017395}
+2026-09-10 07:42:29 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:42:29 [INFO] [rag_app] COMPLETED: qdrant_search in 31.25ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 31.25147399987327}
+2026-09-10 07:42:29 [INFO] [rag_app] Retrieval for 'What lead time and accuracy metrics are ...': retrieved=5, filtered=5, max_sim=0.8271, threshold=0.35, embed=108.27ms, search=31.51ms, low_conf=False
+2026-09-10 07:42:42 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 12608.76ms (556 chars, 117 tokens, 23.55 tok/s).
+2026-09-10 07:42:42 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 4/25: TASK-04 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:42:42 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:42:42 [INFO] [rag_app] COMPLETED: fastembed_query in 105.43ms | {'elapsed_ms': 105.42638500010071}
+2026-09-10 07:42:42 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:42:42 [INFO] [rag_app] COMPLETED: qdrant_search in 79.97ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 79.97246899867605}
+2026-09-10 07:42:42 [INFO] [rag_app] Retrieval for 'What are the primary clinical challenges...': retrieved=5, filtered=5, max_sim=0.8634, threshold=0.35, embed=106.58ms, search=80.71ms, low_conf=False
+2026-09-10 07:43:05 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 23592.87ms (1822 chars, 331 tokens, 21.28 tok/s).
+2026-09-10 07:43:05 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 5/25: TASK-05 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:43:05 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:43:06 [INFO] [rag_app] COMPLETED: fastembed_query in 110.53ms | {'elapsed_ms': 110.53317100049753}
+2026-09-10 07:43:06 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:43:06 [INFO] [rag_app] COMPLETED: qdrant_search in 86.30ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 86.30222200008575}
+2026-09-10 07:43:06 [INFO] [rag_app] Retrieval for 'How do transformer patient embeddings us...': retrieved=5, filtered=5, max_sim=0.8100, threshold=0.35, embed=110.94ms, search=86.51ms, low_conf=False
+2026-09-10 07:43:17 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11743.79ms (523 chars, 85 tokens, 22.29 tok/s).
+2026-09-10 07:43:17 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 6/25: TASK-06 (CODE_EXPLANATION)
+2026-09-10 07:43:17 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:43:18 [INFO] [rag_app] COMPLETED: fastembed_query in 141.01ms | {'elapsed_ms': 141.01042000038433}
+2026-09-10 07:43:18 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:43:18 [INFO] [rag_app] COMPLETED: qdrant_search in 20.73ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 20.733977999043418}
+2026-09-10 07:43:18 [INFO] [rag_app] Retrieval for 'Explain what the calculate_hash() method...': retrieved=5, filtered=5, max_sim=0.8458, threshold=0.35, embed=141.35ms, search=21.04ms, low_conf=False
+2026-09-10 07:43:29 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11848.52ms (515 chars, 106 tokens, 24.09 tok/s).
+2026-09-10 07:43:29 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 7/25: TASK-07 (CODE_EXPLANATION)
+2026-09-10 07:43:29 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:43:30 [INFO] [rag_app] COMPLETED: fastembed_query in 214.67ms | {'elapsed_ms': 214.66716400027508}
+2026-09-10 07:43:30 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:43:30 [INFO] [rag_app] COMPLETED: qdrant_search in 13.74ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 13.735020998865366}
+2026-09-10 07:43:30 [INFO] [rag_app] Retrieval for 'What does the RecursiveCharacterChunker ...': retrieved=5, filtered=5, max_sim=0.8250, threshold=0.35, embed=269.01ms, search=14.34ms, low_conf=False
+2026-09-10 07:43:48 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 18161.15ms (396 chars, 74 tokens, 21.65 tok/s).
+2026-09-10 07:43:48 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 8/25: TASK-08 (CODE_EXPLANATION)
+2026-09-10 07:43:48 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:43:48 [INFO] [rag_app] COMPLETED: fastembed_query in 94.15ms | {'elapsed_ms': 94.15374000127485}
+2026-09-10 07:43:48 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:43:48 [INFO] [rag_app] COMPLETED: qdrant_search in 65.93ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 65.92620700030238}
+2026-09-10 07:43:48 [INFO] [rag_app] Retrieval for 'Which software components and modules di...': retrieved=5, filtered=5, max_sim=0.7531, threshold=0.35, embed=94.66ms, search=66.3ms, low_conf=False
+2026-09-10 07:43:59 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11302.41ms (381 chars, 95 tokens, 24.55 tok/s).
+2026-09-10 07:43:59 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 9/25: TASK-09 (BUG_ANALYSIS)
+2026-09-10 07:43:59 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:44:00 [INFO] [rag_app] COMPLETED: fastembed_query in 106.22ms | {'elapsed_ms': 106.22020499977225}
+2026-09-10 07:44:00 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:44:00 [INFO] [rag_app] COMPLETED: qdrant_search in 61.39ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 61.38699899929634}
+2026-09-10 07:44:00 [INFO] [rag_app] Retrieval for 'What happens if a user uploads a PDF tha...': retrieved=5, filtered=5, max_sim=0.7048, threshold=0.35, embed=106.66ms, search=61.89ms, low_conf=False
+2026-09-10 07:44:11 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11130.15ms (447 chars, 94 tokens, 24.92 tok/s).
+2026-09-10 07:44:11 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 10/25: TASK-10 (BUG_ANALYSIS)
+2026-09-10 07:44:11 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:44:11 [INFO] [rag_app] COMPLETED: fastembed_query in 93.18ms | {'elapsed_ms': 93.17982799984748}
+2026-09-10 07:44:11 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:44:11 [INFO] [rag_app] COMPLETED: qdrant_search in 19.33ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 19.32609400137153}
+2026-09-10 07:44:11 [INFO] [rag_app] Retrieval for 'What could cause RAGPipeline.query() to ...': retrieved=5, filtered=5, max_sim=0.8081, threshold=0.35, embed=94.13ms, search=19.6ms, low_conf=False
+2026-09-10 07:44:37 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 25995.56ms (1300 chars, 274 tokens, 21.96 tok/s).
+2026-09-10 07:44:37 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 11/25: TASK-11 (CODE_GENERATION)
+2026-09-10 07:44:37 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:44:37 [INFO] [rag_app] COMPLETED: fastembed_query in 175.23ms | {'elapsed_ms': 175.2325209999981}
+2026-09-10 07:44:37 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:44:37 [INFO] [rag_app] COMPLETED: qdrant_search in 14.85ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 14.854389999527484}
+2026-09-10 07:44:37 [INFO] [rag_app] Retrieval for 'Write a pure Python function `cosine_sim...': retrieved=5, filtered=5, max_sim=0.7740, threshold=0.35, embed=175.59ms, search=15.12ms, low_conf=False
+2026-09-10 07:45:05 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 28375.33ms (1363 chars, 325 tokens, 21.96 tok/s).
+2026-09-10 07:45:06 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 12/25: TASK-12 (CODE_GENERATION)
+2026-09-10 07:45:06 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:45:06 [INFO] [rag_app] COMPLETED: fastembed_query in 188.62ms | {'elapsed_ms': 188.61996499981615}
+2026-09-10 07:45:06 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:45:06 [INFO] [rag_app] COMPLETED: qdrant_search in 49.11ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 49.11028999958944}
+2026-09-10 07:45:06 [INFO] [rag_app] Retrieval for 'Write a Python function `filter_chunks_b...': retrieved=5, filtered=5, max_sim=0.7500, threshold=0.35, embed=189.01ms, search=49.43ms, low_conf=False
+2026-09-10 07:45:22 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 16359.00ms (845 chars, 187 tokens, 23.63 tok/s).
+2026-09-10 07:45:22 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 13/25: TASK-13 (CODE_GENERATION)
+2026-09-10 07:45:22 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:45:22 [INFO] [rag_app] COMPLETED: fastembed_query in 175.91ms | {'elapsed_ms': 175.90869800005748}
+2026-09-10 07:45:22 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:45:22 [INFO] [rag_app] COMPLETED: qdrant_search in 31.12ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 31.115302999751293}
+2026-09-10 07:45:22 [INFO] [rag_app] Retrieval for 'Write a Python function `format_citation...': retrieved=5, filtered=5, max_sim=0.7169, threshold=0.35, embed=176.27ms, search=31.28ms, low_conf=False
+2026-09-10 07:45:33 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 10470.05ms (294 chars, 77 tokens, 24.34 tok/s).
+2026-09-10 07:45:33 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 14/25: TASK-14 (CODE_GENERATION)
+2026-09-10 07:45:33 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:45:33 [INFO] [rag_app] COMPLETED: fastembed_query in 165.35ms | {'elapsed_ms': 165.35452800053463}
+2026-09-10 07:45:33 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:45:33 [INFO] [rag_app] COMPLETED: qdrant_search in 50.54ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 50.540546000775066}
+2026-09-10 07:45:33 [INFO] [rag_app] Retrieval for 'Write a Python function `compute_mrr(ran...': retrieved=5, filtered=5, max_sim=0.7373, threshold=0.35, embed=170.25ms, search=51.0ms, low_conf=False
+2026-09-10 07:46:01 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 28185.89ms (1374 chars, 350 tokens, 22.19 tok/s).
+2026-09-10 07:46:01 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 15/25: TASK-15 (REFACTORING)
+2026-09-10 07:46:01 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:46:01 [INFO] [rag_app] COMPLETED: fastembed_query in 101.37ms | {'elapsed_ms': 101.37424599997757}
+2026-09-10 07:46:01 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:46:01 [INFO] [rag_app] COMPLETED: qdrant_search in 39.77ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 39.769015998899704}
+2026-09-10 07:46:01 [INFO] [rag_app] Retrieval for 'Suggest a refactoring for the Ollama cli...': retrieved=5, filtered=5, max_sim=0.8088, threshold=0.35, embed=117.65ms, search=40.22ms, low_conf=False
+2026-09-10 07:46:28 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 26258.34ms (1566 chars, 350 tokens, 22.48 tok/s).
+2026-09-10 07:46:28 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 16/25: TASK-16 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:46:28 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:46:28 [INFO] [rag_app] COMPLETED: fastembed_query in 111.60ms | {'elapsed_ms': 111.59615600081452}
+2026-09-10 07:46:28 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:46:28 [INFO] [rag_app] COMPLETED: qdrant_search in 27.37ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 27.368220000425936}
+2026-09-10 07:46:28 [INFO] [rag_app] Retrieval for 'Trace the step-by-step execution path ac...': retrieved=5, filtered=5, max_sim=0.7325, threshold=0.35, embed=111.95ms, search=27.65ms, low_conf=False
+2026-09-10 07:46:50 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 21812.84ms (1549 chars, 350 tokens, 24.2 tok/s).
+2026-09-10 07:46:50 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 17/25: TASK-17 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:46:50 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:46:50 [INFO] [rag_app] COMPLETED: fastembed_query in 171.83ms | {'elapsed_ms': 171.82921699895815}
+2026-09-10 07:46:50 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:46:50 [INFO] [rag_app] COMPLETED: qdrant_search in 104.67ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 104.67060799965111}
+2026-09-10 07:46:50 [INFO] [rag_app] Retrieval for 'Which files and database tables are invo...': retrieved=5, filtered=5, max_sim=0.7591, threshold=0.35, embed=172.18ms, search=105.55ms, low_conf=False
+2026-09-10 07:47:12 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 22204.24ms (1535 chars, 350 tokens, 23.46 tok/s).
+2026-09-10 07:47:12 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 18/25: TASK-18 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:47:12 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:47:12 [INFO] [rag_app] COMPLETED: fastembed_query in 125.47ms | {'elapsed_ms': 125.46561499948439}
+2026-09-10 07:47:12 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:47:12 [INFO] [rag_app] COMPLETED: qdrant_search in 36.13ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 36.126725000940496}
+2026-09-10 07:47:12 [INFO] [rag_app] Retrieval for 'If the embedding dimension in app/config...': retrieved=5, filtered=5, max_sim=0.7558, threshold=0.35, embed=125.82ms, search=36.41ms, low_conf=False
+2026-09-10 07:47:43 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 30574.48ms (1622 chars, 350 tokens, 22.3 tok/s).
+2026-09-10 07:47:43 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 19/25: TASK-19 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:47:43 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:47:43 [INFO] [rag_app] COMPLETED: fastembed_query in 108.12ms | {'elapsed_ms': 108.12303500097187}
+2026-09-10 07:47:43 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:47:43 [INFO] [rag_app] COMPLETED: qdrant_search in 49.07ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 49.06717999983812}
+2026-09-10 07:47:43 [INFO] [rag_app] Retrieval for 'Which test files in the tests/ directory...': retrieved=5, filtered=5, max_sim=0.7476, threshold=0.35, embed=108.48ms, search=49.33ms, low_conf=False
+2026-09-10 07:48:04 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 20394.09ms (629 chars, 120 tokens, 22.76 tok/s).
+2026-09-10 07:48:04 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 20/25: TASK-20 (REPOSITORY_UNDERSTANDING)
+2026-09-10 07:48:04 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:48:04 [INFO] [rag_app] COMPLETED: fastembed_query in 97.36ms | {'elapsed_ms': 97.35733600064123}
+2026-09-10 07:48:04 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:48:04 [INFO] [rag_app] COMPLETED: qdrant_search in 56.62ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 56.622869000420906}
+2026-09-10 07:48:04 [INFO] [rag_app] Retrieval for 'What role does metadata/rag.db play in r...': retrieved=5, filtered=5, max_sim=0.7802, threshold=0.35, embed=97.67ms, search=56.89ms, low_conf=False
+2026-09-10 07:48:18 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 13864.91ms (822 chars, 160 tokens, 24.31 tok/s).
+2026-09-10 07:48:18 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 21/25: TASK-21 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:48:18 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:48:18 [INFO] [rag_app] COMPLETED: fastembed_query in 81.96ms | {'elapsed_ms': 81.96220200079551}
+2026-09-10 07:48:18 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:48:18 [INFO] [rag_app] COMPLETED: qdrant_search in 12.40ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 12.39547700060939}
+2026-09-10 07:48:18 [INFO] [rag_app] Retrieval for 'What does the documentation say about Ku...': retrieved=5, filtered=5, max_sim=0.6515, threshold=0.35, embed=82.33ms, search=12.86ms, low_conf=False
+2026-09-10 07:48:32 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 14126.59ms (82 chars, 15 tokens, 23.55 tok/s).
+2026-09-10 07:48:32 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 22/25: TASK-22 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:48:32 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:48:32 [INFO] [rag_app] COMPLETED: fastembed_query in 79.45ms | {'elapsed_ms': 79.44829999905778}
+2026-09-10 07:48:32 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:48:32 [INFO] [rag_app] COMPLETED: qdrant_search in 54.07ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 54.06929200034938}
+2026-09-10 07:48:32 [INFO] [rag_app] Retrieval for 'What is the Bitcoin payment transaction ...': retrieved=5, filtered=5, max_sim=0.6822, threshold=0.35, embed=80.61ms, search=54.33ms, low_conf=False
+2026-09-10 07:48:43 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 11100.15ms (338 chars, 98 tokens, 25.03 tok/s).
+2026-09-10 07:48:43 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 23/25: TASK-23 (NEGATIVE_HALLUCINATION_TEST)
+2026-09-10 07:48:43 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:48:43 [INFO] [rag_app] COMPLETED: fastembed_query in 203.45ms | {'elapsed_ms': 203.44974799991178}
+2026-09-10 07:48:43 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:48:43 [INFO] [rag_app] COMPLETED: qdrant_search in 13.85ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 13.84943899938662}
+2026-09-10 07:48:43 [INFO] [rag_app] Retrieval for 'How does the system configure OAuth2 Goo...': retrieved=5, filtered=5, max_sim=0.6140, threshold=0.35, embed=262.47ms, search=14.0ms, low_conf=False
+2026-09-10 07:48:59 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 15959.13ms (392 chars, 89 tokens, 22.76 tok/s).
+2026-09-10 07:48:59 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 24/25: TASK-24 (RAG_DOMAIN_KNOWLEDGE)
+2026-09-10 07:48:59 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:49:00 [INFO] [rag_app] COMPLETED: fastembed_query in 93.44ms | {'elapsed_ms': 93.43600399915886}
+2026-09-10 07:49:00 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:49:00 [INFO] [rag_app] COMPLETED: qdrant_search in 59.61ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 59.608978999676765}
+2026-09-10 07:49:00 [INFO] [rag_app] Retrieval for 'Why does ProteinMPNN use an autoregressi...': retrieved=5, filtered=5, max_sim=0.8832, threshold=0.35, embed=111.72ms, search=59.86ms, low_conf=False
+2026-09-10 07:49:11 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 10978.74ms (517 chars, 92 tokens, 24.49 tok/s).
+2026-09-10 07:49:11 [INFO] [rag_app] [qwen2.5-coder:1.5b] Running Task 25/25: TASK-25 (BUG_ANALYSIS)
+2026-09-10 07:49:11 [INFO] [rag_app] START: fastembed_query | {}
+2026-09-10 07:49:11 [INFO] [rag_app] COMPLETED: fastembed_query in 150.66ms | {'elapsed_ms': 150.66356100032863}
+2026-09-10 07:49:11 [INFO] [rag_app] START: qdrant_search | {'top_k': 5, 'doc_filter': None}
+2026-09-10 07:49:11 [INFO] [rag_app] COMPLETED: qdrant_search in 13.02ms | {'top_k': 5, 'doc_filter': None, 'elapsed_ms': 13.017668999964371}
+2026-09-10 07:49:11 [INFO] [rag_app] Retrieval for 'What concurrency or performance bottlene...': retrieved=5, filtered=5, max_sim=0.7288, threshold=0.35, embed=201.05ms, search=13.3ms, low_conf=False
+2026-09-10 07:49:33 [INFO] [rag_app] Ollama generation (qwen2.5-coder:1.5b) completed in 21886.88ms (1754 chars, 350 tokens, 23.89 tok/s).
+2026-09-10 07:49:33 [INFO] [rag_app] Benchmark completed successfully! Results written to /app/evaluation/results/evaluation_results.json
+
+================================================================================
+🎯 MULTI-MODEL BENCHMARK SUMMARY
+================================================================================
+Metric                           | llama3.2:1b    | starcoder2:3b  | qwen2.5-coder:1.5b
+--------------------------------------------------------------------------------
+Accuracy (Token F1)              | 0.2179         | 0.1447         | 0.3224        
+Keyword Recall                   | 0.4653         | 0.3015         | 0.4710        
+Relevance Score                  | 0.2219         | 0.1150         | 0.2932        
+Hallucination Rate (%)           | 12.0          % | 12.0          % | 8.0           %
+Code Test-Pass Rate (%)          | 25.0          % | 0.0           % | 0.0           %
+Mean Generation Latency          | 43644.9     ms | 45375.9     ms | 17581.6     ms
+Median Generation Latency        | 44276.3     ms | 44402.5     ms | 15959.1     ms
+P95 Generation Latency           | 58069.1     ms | 89764.7     ms | 28375.3     ms
+Peak Memory RSS                  | 396.5       MB | 396.5       MB | 396.5       MB
+================================================================================

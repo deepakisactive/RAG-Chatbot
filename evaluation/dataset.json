@@ -1,0 +1,273 @@
+[
+  {
+    "id": "TASK-01",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "factual_extraction",
+    "question": "What is the core sequence recovery rate and advantage reported for ProteinMPNN compared to standard Rosetta methods?",
+    "ground_truth": "ProteinMPNN achieves approximately 52.4% sequence recovery across native test sets compared to Rosetta's ~32.9%, running roughly 200 times faster while generating diverse sequences that fold into target protein backbones.",
+    "expected_keywords": ["proteinmpnn", "recovery", "rosetta", "faster", "sequence", "fold"],
+    "expected_document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+    "expected_page": 1,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-02",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "factual_extraction",
+    "question": "How does the generative transformer model represent the natural history of human disease trajectories?",
+    "ground_truth": "The generative transformer models longitudinal clinical trajectories by treating diagnostic disease codes, medical events, and timestamps as sequential tokens in a patient timeline, predicting future onset risks across hundreds of conditions.",
+    "expected_keywords": ["transformer", "longitudinal", "trajectory", "clinical", "disease", "tokens", "timeline"],
+    "expected_document": "learning_the_natural_history_of_human_disease_with_generative_transformers.pdf",
+    "expected_page": 1,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-03",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "factual_extraction",
+    "question": "What lead time and accuracy metrics are reported for sequence-based cloudburst prediction models?",
+    "ground_truth": "The sequence-based model predicts localized cloudburst events with a lead time of several hours (typically 2 to 6 hours) prior to extreme rainfall precipitation, achieving high precision and recall relative to traditional numerical weather prediction.",
+    "expected_keywords": ["cloudburst", "lead time", "hours", "precipitation", "rainfall", "prediction"],
+    "expected_document": "Sequence_Model_based_Cloudburst_Prediction_for_the.pdf",
+    "expected_page": 2,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-04",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "factual_extraction",
+    "question": "What are the primary clinical challenges and performance gains in early sepsis prediction discussed in the progress paper?",
+    "ground_truth": "Early sepsis prediction faces challenges such as missing vitals, label noise, and temporal irregularity. Modern deep learning and recurrent/transformer architectures improve early detection lead times by 4 to 12 hours before clinical onset with AUROC above 0.85.",
+    "expected_keywords": ["sepsis", "prediction", "early", "auroc", "clinical", "hours", "onset"],
+    "expected_document": "Progress_in_sepsis_prediction.pdf",
+    "expected_page": 3,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-05",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "comparative_synthesis",
+    "question": "How do transformer patient embeddings using electronic health records handle irregular time intervals between hospital visits?",
+    "ground_truth": "Transformer patient embedding models incorporate explicit time delta embeddings, elapsed time position encodings, or decay functions to account for non-uniform sampling intervals between hospital visits and clinical observations.",
+    "expected_keywords": ["embedding", "patient", "time", "interval", "elapsed", "visits", "records"],
+    "expected_document": "transformer_patient_embedding_using_electronic_health_records.pdf",
+    "expected_page": 4,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-06",
+    "category": "CODE_EXPLANATION",
+    "task_type": "code_explanation",
+    "question": "Explain what the calculate_hash() method in PDFParser does and why it is used during document ingestion.",
+    "ground_truth": "The calculate_hash() method computes a cryptographic SHA-256 checksum over file bytes or file contents. It is used during ingestion for automatic duplicate detection, preventing redundant embedding computation and vector database bloat.",
+    "expected_keywords": ["calculate_hash", "sha256", "sha-256", "hash", "duplicate", "checksum"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-07",
+    "category": "CODE_EXPLANATION",
+    "task_type": "code_explanation",
+    "question": "What does the RecursiveCharacterChunker in app/ingestion/chunker.py do when a single paragraph exceeds the maximum chunk size?",
+    "ground_truth": "When a paragraph exceeds the chunk size, the RecursiveCharacterChunker falls back hierarchically to finer separator delimiters (such as single newlines, sentences ending with periods, spaces, or individual characters) while preserving chunk_overlap between adjacent chunks.",
+    "expected_keywords": ["chunker", "recursive", "separators", "delimiter", "sentences", "overlap", "split"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-08",
+    "category": "CODE_EXPLANATION",
+    "task_type": "dependency_understanding",
+    "question": "Which software components and modules directly instantiate or interact with VectorStoreClient in the application?",
+    "ground_truth": "VectorStoreClient is instantiated and used by RetrievalEngine (in app/rag/retriever.py) for vector similarity searches and by DocumentIndexer (in app/ingestion/indexer.py) for batch upserting and deleting document embeddings.",
+    "expected_keywords": ["vectorstoreclient", "retrievalengine", "indexer", "retriever", "upsert", "search"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-09",
+    "category": "BUG_ANALYSIS",
+    "task_type": "bug_analysis",
+    "question": "What happens if a user uploads a PDF that contains only scanned raster images and no text layer? How does PDFParser handle this?",
+    "ground_truth": "PDFParser checks total_characters extracted across all pages. If total_characters is 0, is_extractable is set to False, error_message is set to indicate the PDF contains no extractable text (scanned image or empty), and indexing is aborted safely without crashing.",
+    "expected_keywords": ["scanned", "extractable", "total_characters", "0", "error_message", "false", "empty"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-10",
+    "category": "BUG_ANALYSIS",
+    "task_type": "edge_case_analysis",
+    "question": "What could cause RAGPipeline.query() to return LOW_CONFIDENCE_MESSAGE instead of calling the LLM?",
+    "ground_truth": "RAGPipeline returns LOW_CONFIDENCE_MESSAGE if trace.is_low_confidence is True or trace.filtered_chunks is empty, which happens when Qdrant returns no chunks or when all retrieved chunks have similarity scores below the configured similarity threshold.",
+    "expected_keywords": ["threshold", "similarity", "filtered_chunks", "low_confidence", "empty", "cutoff"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-11",
+    "category": "CODE_GENERATION",
+    "task_type": "unit_tested_code",
+    "question": "Write a pure Python function `cosine_similarity(vec_a: list, vec_b: list) -> float` that calculates the cosine similarity between two float vectors without importing third-party libraries. Return 0.0 if either vector has zero magnitude.",
+    "ground_truth": "def cosine_similarity(vec_a, vec_b):\n    dot = sum(a * b for a, b in zip(vec_a, vec_b))\n    norm_a = sum(a * a for a in vec_a) ** 0.5\n    norm_b = sum(b * b for b in vec_b) ** 0.5\n    if norm_a == 0.0 or norm_b == 0.0:\n        return 0.0\n    return dot / (norm_a * norm_b)",
+    "expected_keywords": ["cosine_similarity", "dot", "norm", "sum", "zip"],
+    "is_code_task": true,
+    "test_function_name": "cosine_similarity",
+    "test_suite_code": "assert abs(cosine_similarity([1.0, 0.0], [1.0, 0.0]) - 1.0) < 1e-4\nassert abs(cosine_similarity([1.0, 0.0], [0.0, 1.0]) - 0.0) < 1e-4\nassert abs(cosine_similarity([1.0, 2.0], [2.0, 4.0]) - 1.0) < 1e-4\nassert cosine_similarity([0.0, 0.0], [1.0, 2.0]) == 0.0",
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-12",
+    "category": "CODE_GENERATION",
+    "task_type": "unit_tested_code",
+    "question": "Write a Python function `filter_chunks_by_threshold(chunks: list, threshold: float) -> list` where each chunk in chunks is a dictionary with keys 'chunk_id', 'text', and 'score'. Return only chunks whose 'score' is greater than or equal to threshold, sorted in descending order of score.",
+    "ground_truth": "def filter_chunks_by_threshold(chunks, threshold):\n    filtered = [c for c in chunks if c.get('score', 0.0) >= threshold]\n    return sorted(filtered, key=lambda x: x.get('score', 0.0), reverse=True)",
+    "expected_keywords": ["filter_chunks_by_threshold", "score", "threshold", "sorted", "reverse"],
+    "is_code_task": true,
+    "test_function_name": "filter_chunks_by_threshold",
+    "test_suite_code": "data = [{'chunk_id': 'c1', 'score': 0.3}, {'chunk_id': 'c2', 'score': 0.8}, {'chunk_id': 'c3', 'score': 0.6}]\nres = filter_chunks_by_threshold(data, 0.5)\nassert len(res) == 2\nassert res[0]['chunk_id'] == 'c2'\nassert res[1]['chunk_id'] == 'c3'\nassert filter_chunks_by_threshold(data, 0.9) == []",
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-13",
+    "category": "CODE_GENERATION",
+    "task_type": "unit_tested_code",
+    "question": "Write a Python function `format_citation(filename: str, page: int, score: float) -> str` that formats a citation string in the format: '[filename, Page X (Similarity: Y.YYYY)]' with score rounded to 4 decimal places.",
+    "ground_truth": "def format_citation(filename, page, score):\n    return f'[{filename}, Page {page} (Similarity: {score:.4f})]'",
+    "expected_keywords": ["format_citation", "page", "similarity"],
+    "is_code_task": true,
+    "test_function_name": "format_citation",
+    "test_suite_code": "assert format_citation('paper.pdf', 3, 0.85241) == '[paper.pdf, Page 3 (Similarity: 0.8524)]'\nassert format_citation('doc.pdf', 1, 0.5) == '[doc.pdf, Page 1 (Similarity: 0.5000)]'",
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-14",
+    "category": "CODE_GENERATION",
+    "task_type": "unit_tested_code",
+    "question": "Write a Python function `compute_mrr(rankings: list) -> float` where rankings is a list of integers representing the 1-based rank of the first relevant chunk for each test query (or 0 if no relevant chunk was retrieved). Return the Mean Reciprocal Rank rounded to 4 decimal places.",
+    "ground_truth": "def compute_mrr(rankings):\n    if not rankings:\n        return 0.0\n    reciprocal_sum = sum(1.0 / r if r > 0 else 0.0 for r in rankings)\n    return round(reciprocal_sum / len(rankings), 4)",
+    "expected_keywords": ["compute_mrr", "reciprocal", "sum", "rankings"],
+    "is_code_task": true,
+    "test_function_name": "compute_mrr",
+    "test_suite_code": "assert compute_mrr([1, 2, 0]) == round((1.0 + 0.5 + 0.0) / 3, 4)\nassert compute_mrr([1, 1, 1]) == 1.0\nassert compute_mrr([0, 0]) == 0.0\nassert compute_mrr([]) == 0.0",
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-15",
+    "category": "REFACTORING",
+    "task_type": "code_refactoring",
+    "question": "Suggest a refactoring for the Ollama client generate() method to prevent socket connection hangs during long generation requests.",
+    "ground_truth": "Refactor generate() by applying explicit connect and read timeout limits on urllib.request or migrating to an httpx.Client with httpx.Timeout(connect=5.0, read=60.0, write=5.0, pool=5.0), and implementing exponential backoff retry logic.",
+    "expected_keywords": ["timeout", "httpx", "retry", "backoff", "connect", "read"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-16",
+    "category": "REPOSITORY_UNDERSTANDING",
+    "task_type": "multi_file_interaction",
+    "question": "Trace the step-by-step execution path across files when a user submits a prompt in app/streamlit/pages/1_💬_Chat.py.",
+    "ground_truth": "1. User enters text in 1_💬_Chat.py -> 2. Calls RAGPipeline.query() in app/rag/pipeline.py -> 3. Calls RetrievalEngine.retrieve() in app/rag/retriever.py which embeds text via FastEmbed in app/ingestion/embedder.py and queries Qdrant in app/vectorstore/qdrant_client.py -> 4. Pipeline gates on similarity threshold; if passed, calls PromptBuilder in app/rag/prompt.py -> 5. Calls OllamaClient.generate() in app/llm/ollama_client.py -> 6. Logs telemetry to SQLite via QueryRepository in app/database/repository.py -> 7. Returns RAGResponse rendered in Chat.py.",
+    "expected_keywords": ["pipeline.py", "retriever.py", "embedder.py", "qdrant", "prompt.py", "ollama_client.py", "repository.py"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-17",
+    "category": "REPOSITORY_UNDERSTANDING",
+    "task_type": "multi_file_interaction",
+    "question": "Which files and database tables are involved in the PDF upload, parsing, hashing, chunking, and indexing lifecycle?",
+    "ground_truth": "The upload flow involves: 1. app/streamlit/pages/2_📄_Documents.py (UI upload), 2. app/documents/manager.py (file saving & hash check), 3. app/ingestion/parser.py (PDF parsing & SHA-256), 4. app/ingestion/chunker.py (recursive chunking), 5. app/ingestion/embedder.py (FastEmbed ONNX), 6. app/ingestion/indexer.py (orchestrates vector upsert), 7. app/vectorstore/qdrant_client.py (vector storage), and 8. app/database/repository.py + app/database/models.py storing metadata in the 'documents' SQLite table.",
+    "expected_keywords": ["documents.py", "manager.py", "parser.py", "chunker.py", "indexer.py", "documents table"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-18",
+    "category": "REPOSITORY_UNDERSTANDING",
+    "task_type": "dependency_analysis",
+    "question": "If the embedding dimension in app/config.py is changed from 384 to 768, which downstream components, tables, or vector collections will be affected or broken?",
+    "ground_truth": "Changing EMBEDDING_DIMENSION from 384 to 768 affects: 1. EmbeddingEngine in app/ingestion/embedder.py (requires a new model outputting 768 dims), 2. VectorStoreClient in app/vectorstore/qdrant_client.py (Qdrant collection must be recreated because existing collection vectors are 384D), 3. DocumentRepository/Pipeline table in SQLite which tracks embedding_dimension, and 4. Existing indexed vector points will fail vector distance comparisons with new 768D queries.",
+    "expected_keywords": ["qdrant", "collection", "recreate", "embedder", "dimension", "384", "768"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-19",
+    "category": "REPOSITORY_UNDERSTANDING",
+    "task_type": "test_traceability",
+    "question": "Which test files in the tests/ directory validate the vector database interactions and the chunking/embedding pipeline?",
+    "ground_truth": "Vector database interactions are validated in tests/test_qdrant_and_indexer.py and tests/test_retrieval.py. Chunking and embedding are validated in tests/test_chunker_and_embedder.py.",
+    "expected_keywords": ["test_qdrant_and_indexer.py", "test_retrieval.py", "test_chunker_and_embedder.py"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-20",
+    "category": "REPOSITORY_UNDERSTANDING",
+    "task_type": "cross_component_flow",
+    "question": "What role does metadata/rag.db play in relation to the Qdrant vector database, and why are both storage systems used?",
+    "ground_truth": "SQLite (metadata/rag.db) stores structured relational metadata: document records (hashes, upload dates, status, page counts, file paths), pipeline configurations, and query telemetry logs. Qdrant stores high-dimensional dense vector embeddings and chunk payloads for approximate nearest neighbor search. Separating them optimizes relational integrity and query auditability while delegating vector indexing to a dedicated engine.",
+    "expected_keywords": ["sqlite", "metadata", "relational", "qdrant", "vector", "telemetry", "audit"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-21",
+    "category": "NEGATIVE_HALLUCINATION_TEST",
+    "task_type": "out_of_scope_query",
+    "question": "What does the documentation say about Kubernetes cluster autoscaling policies in this application?",
+    "ground_truth": "Insufficient evidence was found in the uploaded documents to answer this question.",
+    "expected_keywords": ["insufficient", "evidence", "not found", "no information"],
+    "is_code_task": false,
+    "is_unanswerable": true
+  },
+  {
+    "id": "TASK-22",
+    "category": "NEGATIVE_HALLUCINATION_TEST",
+    "task_type": "out_of_scope_query",
+    "question": "What is the Bitcoin payment transaction fee formula mentioned in the indexed documents?",
+    "ground_truth": "Insufficient evidence was found in the uploaded documents to answer this question.",
+    "expected_keywords": ["insufficient", "evidence", "not found", "no information"],
+    "is_code_task": false,
+    "is_unanswerable": true
+  },
+  {
+    "id": "TASK-23",
+    "category": "NEGATIVE_HALLUCINATION_TEST",
+    "task_type": "out_of_scope_query",
+    "question": "How does the system configure OAuth2 Google Sign-in authentication in app/config.py?",
+    "ground_truth": "Insufficient evidence was found in the uploaded documents to answer this question.",
+    "expected_keywords": ["insufficient", "evidence", "not found", "no information"],
+    "is_code_task": false,
+    "is_unanswerable": true
+  },
+  {
+    "id": "TASK-24",
+    "category": "RAG_DOMAIN_KNOWLEDGE",
+    "task_type": "deep_domain_reasoning",
+    "question": "Why does ProteinMPNN use an autoregressive decoder with random decoding orders during protein sequence generation?",
+    "ground_truth": "ProteinMPNN uses an autoregressive decoder with random decoding orders to prevent systematic positional bias, allow the network to capture complex non-local sequence dependencies across 3D structural contacts, and generate diverse, context-aware sequence designs.",
+    "expected_keywords": ["autoregressive", "decoding order", "bias", "dependencies", "contacts", "diverse"],
+    "expected_document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+    "expected_page": 2,
+    "is_code_task": false,
+    "is_unanswerable": false
+  },
+  {
+    "id": "TASK-25",
+    "category": "BUG_ANALYSIS",
+    "task_type": "concurrency_and_performance",
+    "question": "What concurrency or performance bottlenecks can occur when multiple users query Ollama concurrently on a CPU-bound host machine?",
+    "ground_truth": "Ollama on CPU executes sequential token generation with high thread saturation. Concurrent requests queue behind active generation calls, causing response latency to degrade linearly or trigger HTTP connection timeouts in client requests.",
+    "expected_keywords": ["queue", "concurrency", "cpu", "latency", "timeout", "saturation", "sequential"],
+    "is_code_task": false,
+    "is_unanswerable": false
+  }
+]
+

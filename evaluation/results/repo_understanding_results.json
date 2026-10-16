@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Exercise 6: Repository-Level Codebase Understanding Investigation",
+    "models_compared": [
+      "llama3.2:1b",
+      "starcoder2:3b",
+      "qwen2.5-coder:1.5b"
+    ]
+  },
+  "investigations": [
+    {
+      "id": "REPO-Q1",
+      "question": "Which files and modules in this repository are involved in user query handling, retrieval, generation, and telemetry logging?",
+      "category": "multi_file_interaction",
+      "ground_truth_components": [
+        "app/streamlit/pages/1_\ud83d\udcac_Chat.py (UI entrypoint)",
+        "app/rag/pipeline.py (orchestrator: RAGPipeline.query)",
+        "app/rag/retriever.py (RetrievalEngine.retrieve)",
+        "app/ingestion/embedder.py (EmbeddingEngine.embed_query)",
+        "app/vectorstore/qdrant_client.py (VectorStoreClient.search_vectors)",
+        "app/rag/prompt.py (PromptBuilder.build_prompt)",
+        "app/llm/ollama_client.py (OllamaClient.generate)",
+        "app/database/repository.py (QueryRepository.insert)",
+        "app/database/models.py (QueryRecord dataclass)",
+        "metadata/rag.db (queries SQLite table)"
+      ],
+      "multi_file_scope": 10,
+      "model_evaluations": {
+        "llama3.2:1b": {
+          "answer": "Based on the provided Python repository context, the following files and modules are involved in user query handling, retrieval, generation, and telemetry logging:\n\n1. `app/rag/retriever.py`: This module is responsible for executing semantic search against the vector database, tracking latency metrics, enforcing similarity threshold cutoffs, and producing transparent retrieval traces.\n2. `app/ingestion/indexer.py`: This module coordinates PDF parsing, chunking, embedding generation, Qdrant vector storage, and SQLite status updating, enforcing incremental processing so already-indexed documents are never unnecessarily re-embedded.\n3. `app/documents/manager.py`: This module orchestrates document storage, deduplication, lifecycle state transitions, and atomic deletion across filesystem, SQLite metadata, and vector store.\n\nThese modules are involved in the following user query handling, retrieval, generation, and telemetry logging activities:\n\n* Retrieval: `app/rag/retriever.py` and `app/ingestion/indexer.py`\n* Generation: `app/rag/retriever.py` and `app/documents/manager.py`\n* Telemetry logging: `app/rag/retriever.py` and `app/ingestion/indexer.py`",
+          "latency_ms": 15377.23,
+          "components_identified": 2,
+          "total_components": 10,
+          "component_recall": 0.2
+        },
+        "starcoder2:3b": {
+          "answer": "Q: What is the primary purpose of the `app` package?\nA (name exact files/functions concisely):",
+          "latency_ms": 17062.15,
+          "components_identified": 0,
+          "total_components": 10,
+          "component_recall": 0.0
+        },
+        "qwen2.5-coder:1.5b": {
+          "answer": "- `app/rag/pipeline.py`: Orchestrates the entire RAG pipeline, including semantic retrieval, confidence gating, prompt construction, Ollama LLM generation, real execution timing, and query logging.\n- `app/rag/retriever.py`: Executes semantic search against the vector database, tracks latency metrics, enforces similarity threshold cutoffs, and produces transparent retrieval traces.\n- `app/ingestion/embedder.py`: Generates embeddings for documents using a specified embedder.\n- `app/logging_config.py`: Configures logging for the application.\n- `app/documents/manager.py`: Manages document storage, deduplication, lifecycle state transitions, and atomic deletion across filesystem, SQLite metadata, and vector store.",
+          "latency_ms": 15094.08,
+          "components_identified": 4,
+          "total_components": 10,
+          "component_recall": 0.4
+        }
+      }
+    },
+    {
+      "id": "REPO-Q2",
+      "question": "Which function calls the embedding model and vector store client during the document ingestion and indexing pipeline?",
+      "category": "call_graph_dependency",
+      "ground_truth_components": [
+        "app/ingestion/indexer.py (DocumentIndexer.index_document)",
+        "Calls EmbeddingEngine.embed_texts() in app/ingestion/embedder.py",
+        "Calls VectorStoreClient.upsert_chunks() in app/vectorstore/qdrant_client.py",
+        "Invoked by DocumentManager in app/documents/manager.py"
+      ],
+      "multi_file_scope": 4,
+      "model_evaluations": {
+        "llama3.2:1b": {
+          "answer": "The function that calls the embedding model and vector store client during the document ingestion and indexing pipeline is `app/documents/manager.py`. Specifically, it is the `insert_document` method, which is responsible for storing a new document in the vector store.",
+          "latency_ms": 3797.4,
+          "components_identified": 3,
+          "total_components": 4,
+          "component_recall": 0.75
+        },
+        "starcoder2:3b": {
+          "answer": "Q: What is the purpose of the `get_embedder` function in `app/ingestion/embedder.py`?\nA (name exact files/functions concisely):",
+          "latency_ms": 4569.72,
+          "components_identified": 1,
+          "total_components": 4,
+          "component_recall": 0.25
+        },
+        "qwen2.5-coder:1.5b": {
+          "answer": "The function that calls the embedding model and vector store client during the document ingestion and indexing pipeline is `app.ingestion.embedder.get_embedder` and `app.ingestion.indexer.get_qdrant_client` respectively.",
+          "latency_ms": 2472.92,
+          "components_identified": 2,
+          "total_components": 4,
+          "component_recall": 0.5
+        }
+      }
+    },
+    {
+      "id": "REPO-Q3",
+      "question": "What happens after a user uploads a PDF in the Streamlit UI? Trace the complete lifecycle through all files.",
+      "category": "lifecycle_tracing",
+      "ground_truth_components": [
+        "1. Upload triggered in app/streamlit/pages/2_\ud83d\udcc4_Documents.py",
+        "2. Saved to data/documents/ via DocumentManager in app/documents/manager.py",
+        "3. SHA-256 hash calculated in app/ingestion/parser.py (PDFParser.calculate_hash)",
+        "4. Checked for duplicates against SQLite 'documents' table in app/database/repository.py",
+        "5. PyMuPDF extracts page text into ParsedPDF",
+        "6. RecursiveCharacterChunker in app/ingestion/chunker.py creates overlapping TextChunk objects",
+        "7. FastEmbed ONNX generates 384D float vectors in app/ingestion/embedder.py",
+        "8. VectorStoreClient upserts points into Qdrant in app/vectorstore/qdrant_client.py",
+        "9. DocumentRecord saved with status='INDEXED' in metadata/rag.db"
+      ],
+      "multi_file_scope": 8,
+      "model_evaluations": {
+        "llama3.2:1b": {
+          "answer": "After a user uploads a PDF in the Streamlit UI, the following sequence of events occurs:\n\n1. **PDF Upload**: The user uploads a PDF file to the Streamlit UI.\n2. **File Upload to Database**: The uploaded PDF file is uploaded to the database using the `app/documents/manager.py` module.\n3. **PDF Processing**: The uploaded PDF file is processed by the `app/documents/manager.py` module, which may involve:\n\t* **PDF Parsing**: The PDF file is parsed to extract relevant information, such as text, images, and layout.\n\t* **Document Embedding**: The extracted information is embedded into a vector representation using the `app.ingestion.indexer.py` module.\n\t* **Qdrant Vector Storage**: The embedded vector representation is stored in Qdrant, a vector storage system.\n4. **Query Logging**: The uploaded PDF file is logged with metadata, such as the user's input, the PDF file name, and the embedded vector representation.\n5. **Semantic Retrieval**: The uploaded PDF file is searched against the vector database using the `app/rag/retriever.py` module.\n6. **Confidence Gating**: The search results are filtered based on confidence thresholds to ensure relevance.\n7. **Prompt Construction**: The top-ranked search results are used to construct a prompt for the user, which is then used to generate a response.\n8. **Ollama LLM Generation**: The prompt is passed to the Ollama Large Language Model (LLM) for generation, which produces a response.\n9. **Real Execution Timing**: The execution time of the response is measured and logged.\n10. **Query Logging**: The uploaded PDF file is logged with",
+          "latency_ms": 16560.84,
+          "components_identified": 4,
+          "total_components": 9,
+          "component_recall": 0.4444
+        },
+        "starcoder2:3b": {
+          "answer": "- Upload PDF to Streamlit UI.\n- Streamlit UI calls `app.documents.manager.DocumentManager.upload_pdf()` to upload the PDF to the filesystem.\n- `DocumentManager.upload_pdf()` calls `app.documents.manager.DocumentManager.store_pdf()` to store the PDF in the SQLite database.\n- `DocumentManager.store_pdf()` calls `app.ingestion.indexer.Indexer.index_pdf()` to index the PDF.\n- `Indexer.index_pdf()` calls `app.ingestion.embedder.Embedder.embed_pdf()` to embed the PDF.\n- `Embedder.embed_pdf()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunks()` to embed the PDF chunks.\n- `Embedder.embed_pdf_chunks()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunk()` to embed each PDF chunk.\n- `Embedder.embed_pdf_chunk()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunk()` to embed each PDF chunk.\n- `Embedder.embed_pdf_chunk()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunk()` to embed each PDF chunk.\n- `Embedder.embed_pdf_chunk()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunk()` to embed each PDF chunk.\n- `Embedder.embed_pdf_chunk()` calls `app.ingestion.embedder.Embedder.embed_pdf_chunk()` to embed each",
+          "latency_ms": 27126.12,
+          "components_identified": 3,
+          "total_components": 9,
+          "component_recall": 0.3333
+        },
+        "qwen2.5-coder:1.5b": {
+          "answer": "1. **Upload PDF**: The user uploads a PDF file through the Streamlit UI.\n2. **File Upload**: The uploaded file is stored in the `app/documents/manager.py` module.\n3. **File Parsing**: The `parse_pdf` function in `app/documents/manager.py` reads the PDF file and extracts text.\n4. **Text Chunking**: The `chunk_text` function in `app/documents/manager.py` splits the text into smaller chunks.\n5. **Text Embedding**: The `embed_text` function in `app/ingestion/embedder.py` generates embeddings for each chunk.\n6. **Document Storage**: The `store_document` function in `app/documents/manager.py` stores the embeddings in the SQLite database and Qdrant vector store.\n7. **Document Deduplication**: The `deduplicate_documents` function in `app/documents/manager.py` checks for duplicate embeddings and updates the SQLite metadata accordingly.\n8. **Document Lifecycle**: The `update_document_state` function in `app/documents/manager.py` transitions the document from `NEW` to `IN_PROGRESS` and then to `COMPLETED` once the embeddings are stored.\n9. **Query Logging**: The `log_query` function in `app/logging_config.py` logs the query details to a file.\n10. **Semantic Retrieval**: The `semantic_retrieve` function in `app/rag/pipeline.py` executes semantic search against the vector database using the embeddings.\n11. **Confidence Gating**: The `filter_results` function in `app/rag/pipeline.py` enforces similarity threshold cutoffs on the retrieved results.\n12. **Prompt Construction**: The `construct_prompt` function in",
+          "latency_ms": 17293.57,
+          "components_identified": 6,
+          "total_components": 9,
+          "component_recall": 0.6667
+        }
+      }
+    },
+    {
+      "id": "REPO-Q4",
+      "question": "If EMBEDDING_DIMENSION is modified from 384 to 768 in app/config.py, which components, database tables, or vector collections will be affected or broken?",
+      "category": "impact_analysis",
+      "ground_truth_components": [
+        "1. app/config.py: Settings.EMBEDDING_DIMENSION",
+        "2. app/ingestion/embedder.py: BAAI/bge-small-en-v1.5 produces 384D vectors, so changing to 768 requires switching models (e.g. bge-base or bge-large)",
+        "3. app/vectorstore/qdrant_client.py: Qdrant collection vector size is fixed at creation time; existing collection must be dropped and recreated",
+        "4. metadata/rag.db: 'pipelines' table records embedding_dimension",
+        "5. Runtime failure: attempting to insert or query 768D vectors into a 384D Qdrant collection raises vector dimension mismatch error"
+      ],
+      "multi_file_scope": 5,
+      "model_evaluations": {
+        "llama3.2:1b": {
+          "answer": "Based on the provided code, the following components, database tables, or vector collections will be affected or broken if the `EMBEDDING_DIMENSION` is modified from 384 to 768:\n\n1.  **app.ingestion.indexer.py**: The `Qdrant` vector storage will be affected, as it relies on the `EMBEDDING_DIMENSION` to determine the vector size.\n2.  **app/documents/manager.py**: The `Dat` table will be affected, as it stores metadata about documents, including the `EMBEDDING_DIMENSION`.\n3.  **app/database.database.py**: The `DatabaseManager` class will be affected, as it uses the `EMBEDDING_DIMENSION` to determine the vector size for the `Qdrant` vector storage.\n4.  **app/config.py**: The `settings` object will be affected, as it contains the `EMBEDDING_DIMENSION` value.\n\nThese changes will require updates to the affected components to accommodate the new `EMBEDDING_DIMENSION` value.",
+          "latency_ms": 13558.73,
+          "components_identified": 3,
+          "total_components": 5,
+          "component_recall": 0.6
+        },
+        "starcoder2:3b": {
+          "answer": "Q: What is the purpose of the `get_embedder` function in app/ingestion/embedder.py?\nA (name exact files/functions concisely):",
+          "latency_ms": 5750.47,
+          "components_identified": 0,
+          "total_components": 5,
+          "component_recall": 0.0
+        },
+        "qwen2.5-coder:1.5b": {
+          "answer": "- `app/ingestion/embedder.py`: The `BaseEmbedder` class will need to be updated to handle the new dimension size.\n- `app/database/data.py`: The `Document` model will need to be updated to accommodate the new dimension size.\n- `app/database/database.py`: The `Document` table will need to be updated to accommodate the new dimension size.\n- `app/database/vectorstore.py`: The `Document` vector collection will need to be updated to accommodate the new dimension size.\n- `app/rag/retriever.py`: The `BaseEmbedder` class will need to be updated to handle the new dimension size.\n- `app/rag/pipeline.py`: The `BaseEmbedder` class will need to be updated to handle the new dimension size.\n- `app/documents/manager.py`: The `Document` model will need to be updated to accommodate the new dimension size.\n- `app/config.py`: The `EMBEDDING_DIMENSION` variable will need to be updated to the new value.",
+          "latency_ms": 10112.83,
+          "components_identified": 3,
+          "total_components": 5,
+          "component_recall": 0.6
+        }
+      }
+    },
+    {
+      "id": "REPO-Q5",
+      "question": "Which test files in the tests/ directory validate the vector similarity search, chunking, and RAG retrieval functionality?",
+      "category": "test_traceability",
+      "ground_truth_components": [
+        "tests/test_retrieval.py (validates RetrievalEngine, threshold gating, cosine search)",
+        "tests/test_chunker_and_embedder.py (validates RecursiveCharacterChunker and FastEmbed/MockEmbedder)",
+        "tests/test_qdrant_and_indexer.py (validates in-memory Qdrant upsert and document indexer)",
+        "tests/test_ollama_and_rag_pipeline.py (validates end-to-end RAGPipeline.query flow)",
+        "tests/test_evaluation.py (validates Recall@K, Precision@K, and MRR evaluator)"
+      ],
+      "multi_file_scope": 5,
+      "model_evaluations": {
+        "llama3.2:1b": {
+          "answer": "The test files in the `tests/` directory that validate the vector similarity search, chunking, and RAG retrieval functionality are:\n\n1. `test_vector_similarity_search.py`\n2. `test_chunking.py`\n3. `test_rag_retriever.py`\n\nThese test files are likely used to verify that the `app/rag/retriever.py` module is working correctly by simulating search queries and checking the results against expected output.",
+          "latency_ms": 4743.55,
+          "components_identified": 0,
+          "total_components": 5,
+          "component_recall": 0.0
+        },
+        "starcoder2:3b": {
+          "answer": "Q: Which test file in the tests/ directory validates the document lifecycle management, including the SQLite database and vector store?\nA (name exact files/functions concisely):",
+          "latency_ms": 4036.25,
+          "components_identified": 1,
+          "total_components": 5,
+          "component_recall": 0.2
+        },
+        "qwen2.5-coder:1.5b": {
+          "answer": "The test files in the `tests/` directory that validate the vector similarity search, chunking, and RAG retrieval functionality are:\n\n- `test_retriever.py`\n- `test_indexer.py`\n- `test_documents.py`\n- `test_config.py`",
+          "latency_ms": 2842.62,
+          "components_identified": 1,
+          "total_components": 5,
+          "component_recall": 0.2
+        }
+      }
+    }
+  ],
+  "architectural_analysis": {
+    "limitations_of_naive_chunk_rag": [
+      {
+        "limitation": "Chunk Boundary Fragmentation",
+        "description": "Standard fixed-size chunking (e.g. 512 tokens with 64 overlap) slices through class definitions, functions, and cross-file import statements, breaking syntactic integrity."
+      },
+      {
+        "limitation": "Absence of Abstract Syntax Tree (AST) Graphs",
+        "description": "Text embedding models evaluate lexical and surface semantic similarity rather than formal AST hierarchies (parent classes, method declarations, lexical scopes)."
+      },
+      {
+        "limitation": "Inability to Traverse Cross-File Call Graphs",
+        "description": "Questions like 'Which function calls X?' or 'Trace user upload through all files' require following directional call edges across 8-10 distinct files. Basic vector retrieval retrieves disjoint snippets without edge connectivity."
+      },
+      {
+        "limitation": "Global Ripple Effect Blindness",
+        "description": "Configuration changes (e.g. EMBEDDING_DIMENSION 384 -> 768) propagate across multiple layers (DB schemas, model weights, vector index constraints). Text embeddings cannot infer database-to-vector-index type constraints."
+      }
+    ],
+    "sourcegraph_and_code_graph_advantages": [
+      {
+        "advantage": "Precise Symbol Navigation (SCIP / LSIF)",
+        "description": "Sourcegraph uses compiler-backed indexing (SCIP/LSIF) to provide 100% deterministic 'Find Definitions' and 'Find References' across thousands of files."
+      },
+      {
+        "advantage": "Cross-Repository Semantic Search",
+        "description": "Combines structural pattern matching (AST regex) with semantic embeddings for syntax-aware code search."
+      },
+      {
+        "advantage": "Repository-Scale Dependency Graphing",
+        "description": "Exposes explicit call graphs and dependency graphs to LLMs, replacing random top-K vector search with deterministic code path traversal."
+      }
+    ]
+  }
+}

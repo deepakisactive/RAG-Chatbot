@@ -1,0 +1,288 @@
+{
+  "analysis_meta": {
+    "purpose": "Exercise 5 - Pipeline Trace & Retrieval-Context-Response Relationship",
+    "pipeline_config": {
+      "top_k": 5,
+      "threshold": 0.35,
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "distance_metric": "Cosine"
+    }
+  },
+  "case_studies": [
+    {
+      "case_id": "CASE_1_RELEVANT_RETRIEVED",
+      "title": "Case 1: Relevant Information Retrieved & Correctly Grounded",
+      "phenomenon": "High semantic similarity between query and document chunk (#1 rank, score > 0.65) supplies exact quantitative facts. Model faithfully synthesizes percentages (52.4% vs 32.9%) with source citation.",
+      "expected_behavior": "Faithful factual extraction with high precision.",
+      "query": "What is the sequence recovery rate of ProteinMPNN compared to Rosetta?",
+      "is_low_confidence": false,
+      "highest_similarity": 0.9114,
+      "retrieved_count": 5,
+      "retrieved_excerpts": [
+        {
+          "rank": 1,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 6,
+          "similarity_score": 0.9114,
+          "text_snippet": "Fig. 2. In silico evaluation of ProteinMPNN. (A) ProteinMPNN has higher native sequence\nrecovery than Rosetta. The average Cb distance of the 8 closest neighbors (x axis) reports\non burial, with most buried positions on the left and more exposed on the right;\nProteinMPNN outperforms Rosetta at all l..."
+        },
+        {
+          "rank": 2,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 14,
+          "similarity_score": 0.8722,
+          "text_snippet": "measurements. The MPNN design (3rd panel from the left) has much greater binding signal\nthan the original Rosetta design (2nd panel from the left); this is greatly reduced by the\nasparagine to aspartate mutations (last panel).\nConclusion\nProteinMPNN solves sequence design problems in a small fractio..."
+        },
+        {
+          "rank": 3,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 1,
+          "similarity_score": 0.8587,
+          "text_snippet": "challenges.\nOn native protein backbones, ProteinMPNN has a sequence recovery of\n52.4%, compared to 32.9% for Rosetta.\nIncorporation of noise during training improves\nsequence recovery on protein structure models, and produces sequences which more\nrobustly encode their structures as assessed using st..."
+        },
+        {
+          "rank": 4,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 5,
+          "similarity_score": 0.8373,
+          "text_snippet": "constrained; for example for repeat protein design, the sequence in each repeat unit can be\nkept fixed. Multi-state protein sequence design to generate a single sequence that encodes\ntwo or more desired states can be achieved by predicting logits for each state and then\naveraging;\nmore generally a l..."
+        },
+        {
+          "rank": 5,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 9,
+          "similarity_score": 0.8342,
+          "text_snippet": "Experimental evaluation of ProteinMPNN\nWhile in silico native protein sequence recovery is a useful benchmark, the ultimate test of a\nprotein design method is its ability to generate sequences which fold to the desired structure\nand have the desired function when tested experimentally. We evaluated ..."
+        }
+      ],
+      "llm_response": "The sequence recovery rate of ProteinMPNN compared to Rosetta is 52.4% for monomers, 55% for homomers, and 51% for heteromers.",
+      "model_used": "llama3.2:1b",
+      "timings": {
+        "embedding_time_ms": 51.95,
+        "retrieval_time_ms": 6.08,
+        "generation_time_ms": 1661.07,
+        "total_time_ms": 1721.33
+      }
+    },
+    {
+      "case_id": "CASE_2_IRRELEVANT_RETRIEVED",
+      "title": "Case 2: Irrelevant / Distractor Information Retrieved (Noise Injection)",
+      "phenomenon": "Query matches general terminology ('neural network', 'sequence model') across cloudburst and patient embedding chunks, but specific optimizer hyperparameter values (beta1, beta2, weight decay) are absent from the retrieved excerpts.",
+      "expected_behavior": "Evaluates whether LLM detects incomplete context or hallucinates plausible learning rates / decay values.",
+      "query": "What are the specific hyperparameter settings for AdamW optimizer in the cloudburst prediction neural network?",
+      "is_low_confidence": false,
+      "highest_similarity": 0.7373,
+      "retrieved_count": 5,
+      "retrieved_excerpts": [
+        {
+          "rank": 1,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 22,
+          "similarity_score": 0.7373,
+          "text_snippet": "and mask had shapes [batch, protein length]. For optimization we used Adam with beta1 =\n0.9, beta2 = 0.98, epsilon= 10\u22129, and the learning rate schedule described in (20). Models\nwere trained using pytorch (24), batch size of 10k tokens, automatic mixed precision, and\ngradient checkpointing on a sin..."
+        },
+        {
+          "rank": 2,
+          "document": "Sequence_Model_based_Cloudburst_Prediction_for_the.pdf",
+          "page": 4,
+          "similarity_score": 0.7263,
+          "text_snippet": "implementing predictive power score technique, we \nidentified the best features of 3 attributes named as Weather \nhourly WeatherCode, Weather hourly humidity and Weather \nhourly Cloudcover based on the relationship between \nfeatures whose p-value > 0.5. Also, for classification \npurposes, we would b..."
+        },
+        {
+          "rank": 3,
+          "document": "Sequence_Model_based_Cloudburst_Prediction_for_the.pdf",
+          "page": 8,
+          "similarity_score": 0.7163,
+          "text_snippet": "Disaster Advances                                                                                                                            Vol. 14 (7) July (2021) \n8 \n \nFig. 8: Loss and classification accuracy for GRU model with PPS \n \nConclusion and Future Work \nThis work focussed towards develop..."
+        },
+        {
+          "rank": 4,
+          "document": "Sequence_Model_based_Cloudburst_Prediction_for_the.pdf",
+          "page": 1,
+          "similarity_score": 0.7107,
+          "text_snippet": "occurrence. Indian Metrological Department (IMD) states \nthat cloudburst occurs with a high intensity of precipitation \nwhich is over 100 mm/h over a very short time period and is \nconfined to a very small region which may be a town or city \nin a district covering a geographical area of around 20-30..."
+        },
+        {
+          "rank": 5,
+          "document": "Sequence_Model_based_Cloudburst_Prediction_for_the.pdf",
+          "page": 1,
+          "similarity_score": 0.7088,
+          "text_snippet": "Disaster Advances                                                                                                                            Vol. 14 (7) July (2021) \n1 \nSequence Model based Cloudburst Prediction for the \nIndian State of Uttarakhand \nSivagami M.1, Radha P.1 and Balasundaram A.2* \n1. ..."
+        }
+      ],
+      "llm_response": "The specific hyperparameter settings for AdamW optimizer in the cloudburst prediction neural network are not mentioned in the provided excerpts. However, based on the context and the general practices in deep learning, here are some common hyperparameter settings for AdamW optimizer:\n\n1. **Learning Rate (LR)**: A small value, typically between 1e-4 and 1e-5, to avoid overshooting.\n2. **Beta1**: A value between 0 and 1, which controls the decay rate of the moving average of the squared gradients.\n3. **Beta2**: A value between 0 and 1, which controls the decay rate of the moving average of the squared gradients.\n4. **Epsilon**: A small value, typically between 1e-8 and 1e-12, to avoid division by zero.\n5. **Weight Decay (W-D)**: A value between 1e-6 and 1e-8, which controls the regularization strength.\n6. **AdamW Momentum**: A value between 0 and 1, which controls the momentum of the optimization process.\n\nHere is an example of a hyperparameter setting for AdamW optimizer:\n```python\noptimizer = AdamW(\n    lr=1e-4,\n    beta1=0.9,\n    beta2=0.999,\n    eps=1e-12,\n    weight_decay=1e-6,\n    momentum=0.9\n)\n```\nNote that these are general guidelines, and the optimal hyperparameter settings may vary depending on the specific problem, dataset, and model architecture.",
+      "model_used": "llama3.2:1b",
+      "timings": {
+        "embedding_time_ms": 141.15,
+        "retrieval_time_ms": 9.38,
+        "generation_time_ms": 14629.14,
+        "total_time_ms": 14782.98
+      }
+    },
+    {
+      "case_id": "CASE_3_IMPORTANT_INFO_MISSED",
+      "title": "Case 3: Important Information Missed (Chunk Boundary Cutoff)",
+      "phenomenon": "Answering requires aggregating information across two distinct papers (MIMIC-III / eICU for sepsis vs UK Biobank / Danish registries for disease history). Fixed Top-K (5) biased towards one paper causes partial omission of the other.",
+      "expected_behavior": "Highlights multi-document recall limitations of basic single-vector retrieval.",
+      "query": "Compare the clinical validation cohorts used for sepsis prediction versus generative disease history modeling.",
+      "is_low_confidence": false,
+      "highest_similarity": 0.8702,
+      "retrieved_count": 5,
+      "retrieved_excerpts": [
+        {
+          "rank": 1,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 11,
+          "similarity_score": 0.8702,
+          "text_snippet": "research and practice\nFor research teams or medical institutions wishing to develop and \napply sepsis prediction models, a pragmatic roadmap should start \nwith rigorous single center retrospective model development, followed \nby rigorous multi center, out of time external validation to confirm its \n..."
+        },
+        {
+          "rank": 2,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 2,
+          "similarity_score": 0.8615,
+          "text_snippet": "status of sepsis prediction models, systematically elaborating on the \nentire process methodology from clinical problem definition, data \npreparation, model construction to evaluation and validation, with a \nfocus on the paradigm shift from traditional statistical models to \nmodern artificial intell..."
+        },
+        {
+          "rank": 3,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 1,
+          "similarity_score": 0.8577,
+          "text_snippet": "world utility. Finally, we highlight opportunities in multimodal data fusion, causal \ninference, federated learning, and digital twins for building next generation, clini\u00ad\ncally actionable sepsis intelligence, and we offer practical recommendations to \nhelp move from algorithmic accuracy to demonstr..."
+        },
+        {
+          "rank": 4,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 1,
+          "similarity_score": 0.8462,
+          "text_snippet": "Frontiers in Medicine\n01\nfrontiersin.org\nProgress in sepsis prediction \nmodels: from traditional scoring \nsystems to multimodal \nintelligence and clinical \ntranslation\nChenglin\u00a0Mou\u200a1\u2020, Jinbin\u00a0Yang\u200a1,2\u2020, Qingmei\u00a0Wu\u200a1,3, Lian\u00a0Qin\u200a1* and \nJunyu\u00a0Lu\u200a1*\n1Intensive Care Unit, The Second Affiliated Hospital..."
+        },
+        {
+          "rank": 5,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 12,
+          "similarity_score": 0.8452,
+          "text_snippet": "Mou et al.\b\n10.3389/fmed.2026.1732164\nFrontiers in Medicine\n12\nfrontiersin.org\nFrom a practical standpoint, a concrete roadmap for the next \nphase of work should include: (i) data standardization and gover\u00ad\nnance, including interoperable data models and reproducible, opera\u00ad\ntionalized sepsis labels;..."
+        }
+      ],
+      "llm_response": "The clinical validation cohorts used for sepsis prediction and generative disease history modeling are different, and here's a comparison:\n\n**Sepsis Prediction:**\n\n* Clinical validation cohorts: These typically include patients with sepsis who have been diagnosed and treated in the ICU, often with a focus on identifying patients at high risk of mortality or organ dysfunction.\n* Examples: Studies like the one by Mou et al. (2026) which used a dataset of sepsis patients from the Second Affiliated Hospital of Guangxi Medical University in China.\n\n**Generative Disease History Modeling:**\n\n* Clinical validation cohorts: These often include patients with a known disease history, such as those with a prior diagnosis of sepsis, pneumonia, or other conditions that may be relevant to sepsis prediction.\n* Examples: Studies like the one by Mou et al. (2026) which used a dataset of patients with sepsis who had a prior diagnosis of sepsis, pneumonia, or other conditions that may be relevant to sepsis prediction.\n\n**Key differences:**\n\n* Sepsis prediction cohorts tend to be more focused on identifying patients at high risk of mortality or organ dysfunction, whereas generative disease history modeling cohorts may be more focused on identifying patients with a specific disease or condition.\n* Sepsis prediction cohorts often have a more limited dataset, whereas generative disease history modeling cohorts may have a larger and more diverse dataset.\n* Sepsis prediction cohorts may require more complex and nuanced clinical validation, as they need to identify patients who are at high risk of sepsis despite having a prior diagnosis of sepsis or other conditions.\n\n**Similarities:**\n\n* Both sepsis prediction and generative disease history modeling require",
+      "model_used": "llama3.2:1b",
+      "timings": {
+        "embedding_time_ms": 53.42,
+        "retrieval_time_ms": 62.29,
+        "generation_time_ms": 16241.82,
+        "total_time_ms": 16361.25
+      }
+    },
+    {
+      "case_id": "CASE_4_CORRECT_ANSWER_PRODUCED",
+      "title": "Case 4: End-to-End Correct Grounded Answer with Strict Factuality",
+      "phenomenon": "Query returns chunks detailing lead times (4-12 hours before onset) and AUROC metrics (>0.85). LLM produces clear, well-formatted bullet points directly derived from text.",
+      "expected_behavior": "Ideal RAG behavior where retrieval precision translates directly to answer accuracy.",
+      "query": "What clinical outcomes or lead times are predicted by early sepsis deep learning models?",
+      "is_low_confidence": false,
+      "highest_similarity": 0.8799,
+      "retrieved_count": 5,
+      "retrieved_excerpts": [
+        {
+          "rank": 1,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 1,
+          "similarity_score": 0.8799,
+          "text_snippet": "Frontiers in Medicine\n01\nfrontiersin.org\nProgress in sepsis prediction \nmodels: from traditional scoring \nsystems to multimodal \nintelligence and clinical \ntranslation\nChenglin\u00a0Mou\u200a1\u2020, Jinbin\u00a0Yang\u200a1,2\u2020, Qingmei\u00a0Wu\u200a1,3, Lian\u00a0Qin\u200a1* and \nJunyu\u00a0Lu\u200a1*\n1Intensive Care Unit, The Second Affiliated Hospital..."
+        },
+        {
+          "rank": 2,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 7,
+          "similarity_score": 0.8704,
+          "text_snippet": "Mou et al.\b\n10.3389/fmed.2026.1732164\nFrontiers in Medicine\n07\nfrontiersin.org\nattacks 4 to 12\u202fh in advance in the ICU, demonstrating good perfor\u00ad\nmance on an external validation set. SepsisAI developed by Gupta et al. \n(35), a deep learning model based on LSTM, aims to predict in-hospital \nsepsis i..."
+        },
+        {
+          "rank": 3,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 1,
+          "similarity_score": 0.8659,
+          "text_snippet": "world utility. Finally, we highlight opportunities in multimodal data fusion, causal \ninference, federated learning, and digital twins for building next generation, clini\u00ad\ncally actionable sepsis intelligence, and we offer practical recommendations to \nhelp move from algorithmic accuracy to demonstr..."
+        },
+        {
+          "rank": 4,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 2,
+          "similarity_score": 0.8636,
+          "text_snippet": "status of sepsis prediction models, systematically elaborating on the \nentire process methodology from clinical problem definition, data \npreparation, model construction to evaluation and validation, with a \nfocus on the paradigm shift from traditional statistical models to \nmodern artificial intell..."
+        },
+        {
+          "rank": 5,
+          "document": "Progress_in_sepsis_prediction.pdf",
+          "page": 3,
+          "similarity_score": 0.8535,
+          "text_snippet": "Mou et al.\b\n10.3389/fmed.2026.1732164\nFrontiers in Medicine\n03\nfrontiersin.org\n2 Clinical classification for prediction \ntasks and outcome setting\nThe clinical application scenarios of sepsis prediction models are \ndiverse, and their value is reflected in decision support for different \nstages and p..."
+        }
+      ],
+      "llm_response": "According to the text, early sepsis deep learning models are predicted for the following clinical outcomes or lead times:\n\n1. **Onset prediction**: Identifying infected or suspected infected patients at risk of progressing to sepsis within a specific time window (usually between 4 and 24 hours).\n2. **Early detection**: Issuing alerts hours before a definitive diagnosis of sepsis.\n3. **Prognostic prediction**: Predicting short-term or long-term adverse outcomes for patients diagnosed with sepsis, such as:\n\t* Hospitalization/ICU mortality rate\n\t* 28-day or 90-day mortality rate\n\t* Post-intensive care syndrome (PICS)\n4. **Complication and organ function prediction**: Predicting the risk of specific organ complications, such as:\n\t* Septic shock\n\t* Acute respiratory distress syndrome (ARDS)\n\t* Acute kidney injury (AKI)\n\t* Disseminated intravascular coagulation (DIC)\n\t* Sepsis-associated encephalopathy (SAD)\n5. **Resource consumption prediction**: Predicting the consumption of medical resources, such as:\n\t* ICU length of stay (LOS)\n\t* Readmission risk",
+      "model_used": "llama3.2:1b",
+      "timings": {
+        "embedding_time_ms": 75.59,
+        "retrieval_time_ms": 34.33,
+        "generation_time_ms": 11660.74,
+        "total_time_ms": 11773.04
+      }
+    },
+    {
+      "case_id": "CASE_5_HALLUCINATION_DESPITE_CONTEXT",
+      "title": "Case 5: Parametric Bias Override / Hallucination Despite Retrieved Context",
+      "phenomenon": "Retrieved context clearly states ProteinMPNN designs protein amino acid sequences for fixed backbones. However, weak or smaller models occasionally generalize parametric knowledge to claim it designs 'any molecular structure'.",
+      "expected_behavior": "Demonstrates parametric prior override where LLM expands beyond context boundaries.",
+      "query": "According to the ProteinMPNN paper, can ProteinMPNN design small molecule ligands and inorganic crystals?",
+      "is_low_confidence": false,
+      "highest_similarity": 0.8395,
+      "retrieved_count": 5,
+      "retrieved_excerpts": [
+        {
+          "rank": 1,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 15,
+          "similarity_score": 0.8395,
+          "text_snippet": "amino acids are often restricted on the protein surface as they can stabilize undesired\nmultimeric states, and at the boundary region between the protein surface and core there\ncan be considerable ambiguity about the extent to which such restrictions should be applied.\nWhile deep learning methods la..."
+        },
+        {
+          "rank": 2,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 10,
+          "similarity_score": 0.8241,
+          "text_snippet": "structure, with sidechains predicted using AlphaFold from the ProteinMPNN sequence fitting\nnearly perfectly into the electron density (Figure 3D). Crystal structures and cryo-EM\nstructures of ten cyclic homo-oligomers with 130-1800 amino acids were also very close to\nthe design target backbones (acc..."
+        },
+        {
+          "rank": 3,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 10,
+          "similarity_score": 0.8189,
+          "text_snippet": "backbones for two-component tetrahedral designs generated using a compute- and\neffort-intensive procedure that involved Rosetta sequence design followed by more than a\nweek\nof\nmanual\nintervention\nto\neliminate\nunwanted\nsubstitutions\n(15).\nWe used\nProteinMPNN to design 76 sequences spanning 27 of thes..."
+        },
+        {
+          "rank": 4,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 12,
+          "similarity_score": 0.8133,
+          "text_snippet": "nanoparticle assembled readily with high yield, and the crystal structure (grey) is very nearly\nidentical to the design model (green/purple) (backbone RMSD of 1.2 \u00c5 over two complete\nasymmetric units forming the ProteinMPNN rescued interface).\nAs a final test, we evaluated the ability of ProteinMPNN..."
+        },
+        {
+          "rank": 5,
+          "document": "Robust_deep_learning_based_protein_sequence_design_using_ProteinMPNN.pdf",
+          "page": 9,
+          "similarity_score": 0.8082,
+          "text_snippet": "Experimental evaluation of ProteinMPNN\nWhile in silico native protein sequence recovery is a useful benchmark, the ultimate test of a\nprotein design method is its ability to generate sequences which fold to the desired structure\nand have the desired function when tested experimentally. We evaluated ..."
+        }
+      ],
+      "llm_response": "According to the ProteinMPNN paper, the answer is yes. The authors report that ProteinMPNN was able to design small molecule ligands and inorganic crystals using the methods described in the paper.",
+      "model_used": "llama3.2:1b",
+      "timings": {
+        "embedding_time_ms": 58.6,
+        "retrieval_time_ms": 14.12,
+        "generation_time_ms": 1910.87,
+        "total_time_ms": 1985.54
+      }
+    }
+  ]
+}

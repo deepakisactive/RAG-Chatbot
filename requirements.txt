@@ -1,0 +1,26 @@
+# Core Web Application
+streamlit>=1.35.0
+
+# Configuration & Data Validation
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.1
+
+# Document Ingestion & Processing
+pymupdf>=1.24.0
+
+# Embeddings: CPU-optimized (ONNX runtime, ~40MB, no PyTorch/CUDA needed)
+fastembed>=0.3.0
+
+# Vector Store Client
+qdrant-client>=1.11.0,<1.12.0
+
+# HTTP Client for Ollama Communication
+httpx>=0.27.0
+
+# Data Manipulation & Scientific Computing
+numpy>=1.26.0
+pandas>=2.2.0
+
+# Testing Framework
+pytest>=8.2.0
