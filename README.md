@@ -33,7 +33,6 @@ A production-grade, observable, and fully local **Retrieval-Augmented Generation
 - [Running Automated Tests & Benchmarks](#-running-automated-tests--benchmarks)
 - [Project Directory Structure](#-project-directory-structure)
 - [Configuration Reference](#-configuration-reference)
-- [Troubleshooting & FAQs](#-troubleshooting--faqs)
 
 ---
 
